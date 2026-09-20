@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ทะเบียนสำหรับรายการที่สร้างแล้ว — ไม่มีข้อมูลตัวอย่าง",
+  "type": "object",
+  "required": [
+    "agents",
+    "skills"
+  ],
+  "properties": {
+    "agents": {
+      "type": "array",
+      "maxItems": 300,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "version",
+          "confirmedCreated",
+          "implementationEvidence",
+          "shortName",
+          "role",
+          "group",
+          "provenance",
+          "isOrchestrator",
+          "skillIds",
+          "requiredSkillIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(?!demo-)[A-Za-z0-9_.:-]{1,120}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "shortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 70
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1600
+          },
+          "group": {
+            "enum": [
+              "factory",
+              "academic",
+              "concepts"
+            ]
+          },
+          "provenance": {
+            "enum": [
+              "documented",
+              "conversation",
+              "concept"
+            ]
+          },
+          "isOrchestrator": {
+            "type": "boolean"
+          },
+          "skillIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?!demo-)[A-Za-z0-9_.:-]{1,120}$"
+            },
+            "maxItems": 300
+          },
+          "requiredSkillIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?!demo-)[A-Za-z0-9_.:-]{1,120}$"
+            },
+            "maxItems": 300
+          },
+          "confirmedCreated": {
+            "const": true
+          },
+          "implementationEvidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "maxItems": 300,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "version",
+          "confirmedCreated",
+          "implementationEvidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(?!demo-)[A-Za-z0-9_.:-]{1,120}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1600
+          },
+          "confirmedCreated": {
+            "const": true
+          },
+          "implementationEvidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          }
+        }
+      }
+    }
+  }
+}
