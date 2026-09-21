@@ -1,0 +1,57 @@
+{
+  "rows": 0,
+  "contract": {
+    "version": "1.0.0",
+    "requiredReturnFields": [
+      "agentId",
+      "runId",
+      "status",
+      "logging"
+    ]
+  },
+  "cronRuns": [
+    {
+      "status": "succeeded",
+      "end_time": "2026-09-21T03:37:00.212615+00:00",
+      "start_time": "2026-09-21T03:37:00.188415+00:00",
+      "return_message": "1 row"
+    },
+    {
+      "status": "succeeded",
+      "end_time": "2026-09-21T03:36:00.080796+00:00",
+      "start_time": "2026-09-21T03:36:00.067336+00:00",
+      "return_message": "1 row"
+    }
+  ],
+  "checkedAt": "2026-09-21T03:37:07.34282+00:00",
+  "sampleRunRows": [],
+  "activation": {
+    "aiEnabled": true,
+    "checkedAt": "2026-09-21T03:38:08.70166+00:00",
+    "activeMembers": 2,
+    "requestsPerDay": 50,
+    "unverifiedAgents": 16,
+    "operationRunCount": 0,
+    "requestsPerMinute": 6
+  },
+  "edgeReadback": {
+    "version": 3,
+    "status": "ACTIVE",
+    "sourceMatchesLocal": true,
+    "files": [
+      "index.ts",
+      "core.mjs",
+      "deno.json"
+    ],
+    "bundleSha256": "1dd223922bf1f7e43f92617349c96319d025777b4323fd293d4bcea7aa677f6c"
+  },
+  "unauthenticatedProbe": {
+    "observedBody": {
+      "ok": false,
+      "error": "SIGN_IN_REQUIRED",
+      "errorCode": "SIGN_IN_REQUIRED"
+    },
+    "transportReportedHttpStatus": 200,
+    "note": "No authenticated execution; this diagnostic response is not a failed Agent run. Transport HTTP status is not treated as proof of the handler's native status."
+  }
+}

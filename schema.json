@@ -1,0 +1,2751 @@
+{
+  "tables": [
+    {
+      "name": "agent_ops.workspaces",
+      "rls_enabled": true,
+      "rows": 1,
+      "columns": [
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "slug",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable",
+            "unique"
+          ],
+          "check": "slug ~ '^[a-z0-9][a-z0-9-]{1,79}$'::text"
+        },
+        {
+          "name": "name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "collection_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'not_connected'::text",
+          "check": "collection_status = ANY (ARRAY['not_connected'::text, 'connected'::text, 'paused'::text])"
+        },
+        {
+          "name": "learning_mode",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'draft_only'::text",
+          "check": "learning_mode = ANY (ARRAY['off'::text, 'draft_only'::text, 'review_required'::text])"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "automation_jobs_workspace_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "knowledge_versions_workspace_id_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "source_registry_workspace_id_fkey",
+          "source_table": "agent_ops.source_registry",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "execution_events_workspace_id_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "skills_workspace_id_fkey",
+          "source_table": "agent_ops.skills",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "runtime_contracts_workspace_id_fkey",
+          "source_table": "agent_ops.runtime_contracts",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "operation_runs_workspace_id_fkey",
+          "source_table": "agent_ops.operation_runs",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "runtime_settings_workspace_id_fkey",
+          "source_table": "agent_ops.runtime_settings",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "agents_workspace_id_fkey",
+          "source_table": "agent_ops.agents",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "members_workspace_id_fkey",
+          "source_table": "agent_ops.members",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "chat_threads_workspace_id_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "history_import_batches_workspace_id_fkey",
+          "source_table": "agent_ops.history_import_batches",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "historical_work_items_workspace_id_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.members",
+      "rls_enabled": true,
+      "rows": 2,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "user_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "role",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "role = ANY (ARRAY['viewer'::text, 'editor'::text, 'reviewer'::text, 'admin'::text])"
+        },
+        {
+          "name": "active",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "true"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "user_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "chat_threads_workspace_id_user_id_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id",
+            "user_id"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "members_workspace_id_fkey",
+          "source_table": "agent_ops.members",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "members_user_id_fkey",
+          "source_table": "agent_ops.members",
+          "source_columns": [
+            "user_id"
+          ],
+          "target_table": "auth.users",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "knowledge_versions_workspace_id_reviewed_by_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id",
+            "reviewed_by"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_reviewed_by_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "reviewed_by"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "chat_turns_workspace_id_user_id_fkey",
+          "source_table": "agent_ops.chat_turns",
+          "source_columns": [
+            "workspace_id",
+            "user_id"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.agents",
+      "rls_enabled": true,
+      "rows": 16,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(code) >= 1 AND length(code) <= 120"
+        },
+        {
+          "name": "name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "short_name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "role_description",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "group_name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "lifecycle",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'draft'::text",
+          "check": "lifecycle = ANY (ARRAY['draft'::text, 'active'::text, 'deprecated'::text])"
+        },
+        {
+          "name": "runtime_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'unverified'::text",
+          "check": "runtime_status = ANY (ARRAY['unverified'::text, 'connected'::text, 'disabled'::text])"
+        },
+        {
+          "name": "version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "provenance",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "source_note",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "source_uri",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        },
+        {
+          "name": "implementation_verified_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "comment": "Time an authorized registry admin attests that the implementation exists; not proof of runtime execution. NULL legacy drafts are excluded from Operations."
+        },
+        {
+          "name": "implementation_verified_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "implementation_evidence",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "is_orchestrator",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "agent_dna_md",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "''::text"
+        },
+        {
+          "name": "logging_contract_version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "requires_run_log",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "true"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "code"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "agents_workspace_id_fkey",
+          "source_table": "agent_ops.agents",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "agent_skills_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.agent_skills",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "execution_events_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "historical_work_items_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "chat_threads_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "agents_implementation_verified_by_fkey",
+          "source_table": "agent_ops.agents",
+          "source_columns": [
+            "implementation_verified_by"
+          ],
+          "target_table": "auth.users",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.skills",
+      "rls_enabled": true,
+      "rows": 11,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(code) >= 1 AND length(code) <= 120"
+        },
+        {
+          "name": "version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(version) >= 1 AND length(version) <= 80"
+        },
+        {
+          "name": "name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "description",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "definition_md",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'proposed'::text",
+          "check": "status = ANY (ARRAY['proposed'::text, 'testing'::text, 'active'::text, 'deprecated'::text])"
+        },
+        {
+          "name": "source_note",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        },
+        {
+          "name": "implementation_verified_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "comment": "Time an authorized registry admin attests that this skill implementation exists; no legacy proposals are automatically confirmed."
+        },
+        {
+          "name": "implementation_verified_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "implementation_evidence",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "code",
+        "version"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "execution_events_workspace_id_skill_code_skill_version_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id",
+            "skill_code",
+            "skill_version"
+          ],
+          "target_table": "agent_ops.skills",
+          "target_columns": [
+            "workspace_id",
+            "code",
+            "version"
+          ]
+        },
+        {
+          "name": "agent_skills_workspace_id_skill_code_skill_version_fkey",
+          "source_table": "agent_ops.agent_skills",
+          "source_columns": [
+            "workspace_id",
+            "skill_code",
+            "skill_version"
+          ],
+          "target_table": "agent_ops.skills",
+          "target_columns": [
+            "workspace_id",
+            "code",
+            "version"
+          ]
+        },
+        {
+          "name": "skills_implementation_verified_by_fkey",
+          "source_table": "agent_ops.skills",
+          "source_columns": [
+            "implementation_verified_by"
+          ],
+          "target_table": "auth.users",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "skills_workspace_id_fkey",
+          "source_table": "agent_ops.skills",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.agent_skills",
+      "rls_enabled": true,
+      "rows": 70,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "agent_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "skill_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "skill_version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "is_assigned",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false"
+        },
+        {
+          "name": "is_required",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false"
+        },
+        {
+          "name": "mapping_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'proposed'::text",
+          "check": "mapping_status = ANY (ARRAY['proposed'::text, 'verified'::text])"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "agent_code",
+        "skill_code",
+        "skill_version"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "agent_skills_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.agent_skills",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "agent_skills_workspace_id_skill_code_skill_version_fkey",
+          "source_table": "agent_ops.agent_skills",
+          "source_columns": [
+            "workspace_id",
+            "skill_code",
+            "skill_version"
+          ],
+          "target_table": "agent_ops.skills",
+          "target_columns": [
+            "workspace_id",
+            "code",
+            "version"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.execution_events",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "producer",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "producer ~ '^[a-zA-Z0-9_.:-]{1,120}$'::text"
+        },
+        {
+          "name": "event_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(event_key) >= 1 AND length(event_key) <= 200"
+        },
+        {
+          "name": "run_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "span_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "agent_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "agent_version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "skill_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "skill_version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "step_name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "step_name IS NULL OR step_name ~ '^[a-zA-Z0-9_.:-]{1,120}$'::text"
+        },
+        {
+          "name": "event_type",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "event_type = ANY (ARRAY['run.started'::text, 'run.succeeded'::text, 'run.failed'::text, 'run.cancelled'::text, 'skill.started'::text, 'skill.succeeded'::text, 'skill.failed'::text])"
+        },
+        {
+          "name": "environment",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "environment = ANY (ARRAY['production'::text, 'staging'::text, 'test'::text])"
+        },
+        {
+          "name": "source_kind",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'runtime'::text",
+          "check": "source_kind = ANY (ARRAY['runtime'::text, 'manual'::text, 'import'::text])"
+        },
+        {
+          "name": "occurred_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "received_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        },
+        {
+          "name": "duration_ms",
+          "data_type": "numeric",
+          "format": "numeric",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "duration_ms >= 0::numeric"
+        },
+        {
+          "name": "input_tokens",
+          "data_type": "bigint",
+          "format": "int8",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "input_tokens >= 0"
+        },
+        {
+          "name": "output_tokens",
+          "data_type": "bigint",
+          "format": "int8",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "output_tokens >= 0"
+        },
+        {
+          "name": "cost_usd",
+          "data_type": "numeric",
+          "format": "numeric",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "cost_usd >= 0::numeric"
+        },
+        {
+          "name": "error_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "error_code IS NULL OR error_code ~ '^[A-Z0-9_.:-]{1,100}$'::text"
+        }
+      ],
+      "primary_keys": [
+        "id",
+        "workspace_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "execution_events_workspace_id_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_evidence_event_id_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "evidence_event_id"
+          ],
+          "target_table": "agent_ops.execution_events",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "execution_events_workspace_id_skill_code_skill_version_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id",
+            "skill_code",
+            "skill_version"
+          ],
+          "target_table": "agent_ops.skills",
+          "target_columns": [
+            "workspace_id",
+            "code",
+            "version"
+          ]
+        },
+        {
+          "name": "execution_events_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.execution_events",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.source_registry",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "name",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "source_type",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "source_type = ANY (ARRAY['approved_document'::text, 'curated_url'::text, 'run_feedback'::text])"
+        },
+        {
+          "name": "locator",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "enabled",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false"
+        },
+        {
+          "name": "data_scope",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'agent_factory'::text",
+          "check": "data_scope = 'agent_factory'::text"
+        },
+        {
+          "name": "allowed_for_learning",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "id",
+        "workspace_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "source_registry_workspace_id_fkey",
+          "source_table": "agent_ops.source_registry",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "knowledge_versions_workspace_id_source_id_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id",
+            "source_id"
+          ],
+          "target_table": "agent_ops.source_registry",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "automation_jobs_workspace_id_source_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id",
+            "source_id"
+          ],
+          "target_table": "agent_ops.source_registry",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.knowledge_versions",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "knowledge_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "version",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "1",
+          "check": "version > 0"
+        },
+        {
+          "name": "source_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "title",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "content_md",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(content_md) >= 1 AND length(content_md) <= 200000"
+        },
+        {
+          "name": "status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'draft'::text",
+          "check": "status = ANY (ARRAY['draft'::text, 'approved'::text, 'rejected'::text, 'superseded'::text])"
+        },
+        {
+          "name": "pii_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'unchecked'::text",
+          "check": "pii_status = ANY (ARRAY['unchecked'::text, 'clean'::text, 'redacted'::text, 'sensitive'::text])"
+        },
+        {
+          "name": "content_sha256",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "content_sha256 ~ '^[a-f0-9]{64}$'::text"
+        },
+        {
+          "name": "reviewed_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "reviewed_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "knowledge_id",
+        "version"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "knowledge_versions_workspace_id_reviewed_by_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id",
+            "reviewed_by"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "knowledge_versions_workspace_id_source_id_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id",
+            "source_id"
+          ],
+          "target_table": "agent_ops.source_registry",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "knowledge_versions_workspace_id_fkey",
+          "source_table": "agent_ops.knowledge_versions",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.learning_candidates",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "agent_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "title",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "proposal_md",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "evidence_event_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "evaluation_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'pending'::text",
+          "check": "evaluation_status = ANY (ARRAY['pending'::text, 'passed'::text, 'failed'::text])"
+        },
+        {
+          "name": "evaluation_summary",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'draft'::text",
+          "check": "status = ANY (ARRAY['draft'::text, 'needs_review'::text, 'approved'::text, 'rejected'::text])"
+        },
+        {
+          "name": "reviewed_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "reviewed_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "id",
+        "workspace_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "automation_jobs_workspace_id_candidate_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id",
+            "candidate_id"
+          ],
+          "target_table": "agent_ops.learning_candidates",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_reviewed_by_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "reviewed_by"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_evidence_event_id_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "evidence_event_id"
+          ],
+          "target_table": "agent_ops.execution_events",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "learning_candidates_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.learning_candidates",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.automation_jobs",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "job_type",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "job_type = ANY (ARRAY['draft_content'::text, 'extract_learning'::text, 'evaluate_candidate'::text])"
+        },
+        {
+          "name": "dedupe_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "source_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "candidate_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'disabled'::text",
+          "check": "status = ANY (ARRAY['disabled'::text, 'queued'::text, 'running'::text, 'succeeded'::text, 'failed'::text])"
+        },
+        {
+          "name": "attempts",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "0",
+          "check": "attempts >= 0"
+        },
+        {
+          "name": "max_attempts",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "3",
+          "check": "max_attempts >= 1 AND max_attempts <= 10"
+        },
+        {
+          "name": "available_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        },
+        {
+          "name": "locked_until",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "worker_id",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "last_error_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "last_error_code IS NULL OR last_error_code ~ '^[A-Z0-9_.:-]{1,100}$'::text"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "id",
+        "workspace_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "automation_jobs_workspace_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "automation_jobs_workspace_id_source_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id",
+            "source_id"
+          ],
+          "target_table": "agent_ops.source_registry",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "automation_jobs_workspace_id_candidate_id_fkey",
+          "source_table": "agent_ops.automation_jobs",
+          "source_columns": [
+            "workspace_id",
+            "candidate_id"
+          ],
+          "target_table": "agent_ops.learning_candidates",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.operation_runs",
+      "rls_enabled": true,
+      "rows": 0,
+      "comment": "Agent Operations completed RUN_LOG; production only is shown by snapshot. No personal content. Separate from HR and append-only.",
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "run_id",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "environment",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "environment = ANY (ARRAY['production'::text, 'staging'::text, 'test'::text])"
+        },
+        {
+          "name": "source_kind",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "source_kind = ANY (ARRAY['runtime'::text, 'manual'::text, 'import'::text])"
+        },
+        {
+          "name": "source_id",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "source_id ~ '^[A-Za-z0-9_.:-]{1,128}$'::text"
+        },
+        {
+          "name": "payload",
+          "data_type": "jsonb",
+          "format": "jsonb",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "received_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "statement_timestamp()"
+        },
+        {
+          "name": "created_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "run_id",
+        "environment"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "operation_runs_workspace_id_fkey",
+          "source_table": "agent_ops.operation_runs",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.runtime_settings",
+      "rls_enabled": true,
+      "rows": 1,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "ai_enabled",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false"
+        },
+        {
+          "name": "requests_per_minute",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "6",
+          "check": "requests_per_minute >= 1 AND requests_per_minute <= 30"
+        },
+        {
+          "name": "requests_per_day",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "50",
+          "check": "requests_per_day >= 1 AND requests_per_day <= 500"
+        },
+        {
+          "name": "updated_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "runtime_settings_workspace_id_fkey",
+          "source_table": "agent_ops.runtime_settings",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.chat_threads",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "user_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "auth.uid()"
+        },
+        {
+          "name": "agent_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "title",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'New conversation'::text",
+          "check": "length(title) >= 1 AND length(title) <= 100"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "chat_turns_workspace_id_thread_id_fkey",
+          "source_table": "agent_ops.chat_turns",
+          "source_columns": [
+            "workspace_id",
+            "thread_id"
+          ],
+          "target_table": "agent_ops.chat_threads",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "chat_threads_workspace_id_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "chat_threads_workspace_id_user_id_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id",
+            "user_id"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        },
+        {
+          "name": "chat_threads_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.chat_threads",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.chat_turns",
+      "rls_enabled": true,
+      "rows": 0,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "thread_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "user_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "auth.uid()"
+        },
+        {
+          "name": "request_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "run_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "span_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "gen_random_uuid()"
+        },
+        {
+          "name": "user_content",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(btrim(user_content)) >= 1 AND length(btrim(user_content)) <= 8000"
+        },
+        {
+          "name": "assistant_content",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "length(assistant_content) <= 60000"
+        },
+        {
+          "name": "status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'queued'::text",
+          "check": "status = ANY (ARRAY['queued'::text, 'running'::text, 'succeeded'::text, 'failed'::text, 'blocked'::text])"
+        },
+        {
+          "name": "error_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "error_code IS NULL OR error_code ~ '^[A-Z0-9_]{1,80}$'::text"
+        },
+        {
+          "name": "execution_mode",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "execution_mode = ANY (ARRAY['database_command'::text, 'role_assistant'::text])"
+        },
+        {
+          "name": "model",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "duration_ms",
+          "data_type": "numeric",
+          "format": "numeric",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "duration_ms >= 0::numeric"
+        },
+        {
+          "name": "input_tokens",
+          "data_type": "bigint",
+          "format": "int8",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "input_tokens >= 0"
+        },
+        {
+          "name": "output_tokens",
+          "data_type": "bigint",
+          "format": "int8",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "output_tokens >= 0"
+        },
+        {
+          "name": "context_refs",
+          "data_type": "jsonb",
+          "format": "jsonb",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'[]'::jsonb",
+          "check": "jsonb_typeof(context_refs) = 'array'::text"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "now()"
+        },
+        {
+          "name": "started_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "completed_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "id"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "chat_turns_workspace_id_thread_id_fkey",
+          "source_table": "agent_ops.chat_turns",
+          "source_columns": [
+            "workspace_id",
+            "thread_id"
+          ],
+          "target_table": "agent_ops.chat_threads",
+          "target_columns": [
+            "workspace_id",
+            "id"
+          ]
+        },
+        {
+          "name": "chat_turns_workspace_id_user_id_fkey",
+          "source_table": "agent_ops.chat_turns",
+          "source_columns": [
+            "workspace_id",
+            "user_id"
+          ],
+          "target_table": "agent_ops.members",
+          "target_columns": [
+            "workspace_id",
+            "user_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.history_import_batches",
+      "rls_enabled": true,
+      "rows": 1,
+      "comment": "Bounded audit scope and per-agent evidence coverage. No-evidence findings are not tasks, and are not proof of no historical work.",
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "batch_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "batch_key ~ '^[A-Za-z0-9_.:-]{1,120}$'::text"
+        },
+        {
+          "name": "source_scope",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(source_scope) >= 1 AND length(source_scope) <= 3000"
+        },
+        {
+          "name": "agent_coverage",
+          "data_type": "jsonb",
+          "format": "jsonb",
+          "options": [
+            "updatable"
+          ],
+          "check": "jsonb_typeof(agent_coverage) = 'array'::text AND jsonb_array_length(agent_coverage) <= 500"
+        },
+        {
+          "name": "limitations",
+          "data_type": "ARRAY",
+          "format": "_text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "statement_timestamp()"
+        },
+        {
+          "name": "created_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "default_value": "auth.uid()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "batch_key"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "history_import_batches_workspace_id_fkey",
+          "source_table": "agent_ops.history_import_batches",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "historical_work_items_workspace_id_batch_key_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id",
+            "batch_key"
+          ],
+          "target_table": "agent_ops.history_import_batches",
+          "target_columns": [
+            "workspace_id",
+            "batch_key"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.historical_work_items",
+      "rls_enabled": true,
+      "rows": 17,
+      "comment": "Evidence-based historical backfill. Artifact, migration and inspection evidence is not proof a named Agent executed a run. Unknown attribution, timing and skills remain NULL. Excluded from runtime KPIs.",
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "history_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "history_key ~ '^[A-Za-z0-9_.:-]{1,200}$'::text"
+        },
+        {
+          "name": "batch_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "category",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "category = ANY (ARRAY['code_artifact'::text, 'database_change'::text, 'status_check'::text, 'documented_agent_work'::text])"
+        },
+        {
+          "name": "title",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(btrim(title)) >= 1 AND length(btrim(title)) <= 240"
+        },
+        {
+          "name": "summary",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(btrim(summary)) >= 1 AND length(btrim(summary)) <= 3000"
+        },
+        {
+          "name": "evidence_status",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "evidence_status = ANY (ARRAY['artifact_verified'::text, 'migration_verified'::text, 'inspection_recorded'::text, 'execution_evidenced'::text])"
+        },
+        {
+          "name": "actor_kind",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "actor_kind = ANY (ARRAY['conversation_assistant'::text, 'unknown'::text, 'identified_agent'::text])"
+        },
+        {
+          "name": "agent_code",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "attribution_evidence",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "occurred_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "time_basis",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "time_basis = ANY (ARRAY['not_recorded'::text, 'source_event_timestamp'::text])"
+        },
+        {
+          "name": "duration_sec",
+          "data_type": "numeric",
+          "format": "numeric",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "duration_sec >= 0::numeric"
+        },
+        {
+          "name": "wait_sec",
+          "data_type": "numeric",
+          "format": "numeric",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "wait_sec >= 0::numeric"
+        },
+        {
+          "name": "retry_count",
+          "data_type": "integer",
+          "format": "int4",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "check": "retry_count >= 0"
+        },
+        {
+          "name": "skill_ids",
+          "data_type": "ARRAY",
+          "format": "_text",
+          "options": [
+            "nullable",
+            "updatable"
+          ]
+        },
+        {
+          "name": "evidence",
+          "data_type": "jsonb",
+          "format": "jsonb",
+          "options": [
+            "updatable"
+          ],
+          "check": "jsonb_typeof(evidence) = 'array'::text AND jsonb_array_length(evidence) >= 1 AND jsonb_array_length(evidence) <= 20 AND octet_length(evidence::text) <= 32768"
+        },
+        {
+          "name": "limitations",
+          "data_type": "ARRAY",
+          "format": "_text",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "include_in_runtime_metrics",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "false",
+          "check": "NOT include_in_runtime_metrics"
+        },
+        {
+          "name": "recorded_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "statement_timestamp()"
+        },
+        {
+          "name": "recorded_by",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "nullable",
+            "updatable"
+          ],
+          "default_value": "auth.uid()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "history_key"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "historical_work_items_workspace_id_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "name": "historical_work_items_workspace_id_agent_code_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id",
+            "agent_code"
+          ],
+          "target_table": "agent_ops.agents",
+          "target_columns": [
+            "workspace_id",
+            "code"
+          ]
+        },
+        {
+          "name": "historical_work_items_workspace_id_batch_key_fkey",
+          "source_table": "agent_ops.historical_work_items",
+          "source_columns": [
+            "workspace_id",
+            "batch_key"
+          ],
+          "target_table": "agent_ops.history_import_batches",
+          "target_columns": [
+            "workspace_id",
+            "batch_key"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent_ops.runtime_contracts",
+      "rls_enabled": true,
+      "rows": 1,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "data_type": "uuid",
+          "format": "uuid",
+          "options": [
+            "updatable"
+          ]
+        },
+        {
+          "name": "contract_key",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "contract_key ~ '^[a-z0-9_.:-]{1,120}$'::text"
+        },
+        {
+          "name": "version",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(version) >= 1 AND length(version) <= 40"
+        },
+        {
+          "name": "contract_md",
+          "data_type": "text",
+          "format": "text",
+          "options": [
+            "updatable"
+          ],
+          "check": "length(contract_md) >= 1 AND length(contract_md) <= 30000"
+        },
+        {
+          "name": "config",
+          "data_type": "jsonb",
+          "format": "jsonb",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "'{}'::jsonb",
+          "check": "jsonb_typeof(config) = 'object'::text"
+        },
+        {
+          "name": "active",
+          "data_type": "boolean",
+          "format": "bool",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "true"
+        },
+        {
+          "name": "created_at",
+          "data_type": "timestamp with time zone",
+          "format": "timestamptz",
+          "options": [
+            "updatable"
+          ],
+          "default_value": "statement_timestamp()"
+        }
+      ],
+      "primary_keys": [
+        "workspace_id",
+        "contract_key",
+        "version"
+      ],
+      "foreign_key_constraints": [
+        {
+          "name": "runtime_contracts_workspace_id_fkey",
+          "source_table": "agent_ops.runtime_contracts",
+          "source_columns": [
+            "workspace_id"
+          ],
+          "target_table": "agent_ops.workspaces",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ]
+    }
+  ]
+}

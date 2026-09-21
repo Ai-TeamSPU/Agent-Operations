@@ -1,0 +1,56 @@
+{
+  "projectRef": "doxunxbgqmybyckczucg",
+  "migrationName": "agent_ops_production_runtime",
+  "migrationResult": {
+    "success": true
+  },
+  "edge": {
+    "id": "44987d8f-85c8-4f7b-bec7-5fb0c24d05c2",
+    "slug": "agent-ops-chat",
+    "name": "agent-ops-chat",
+    "status": "ACTIVE",
+    "version": 3,
+    "created_at": 1789820526155,
+    "updated_at": 1789961685913,
+    "verify_jwt": false,
+    "import_map": true,
+    "entrypoint_path": "file:///tmp/user_fn_doxunxbgqmybyckczucg_44987d8f-85c8-4f7b-bec7-5fb0c24d05c2_3/source/index.ts",
+    "import_map_path": "file:///tmp/user_fn_doxunxbgqmybyckczucg_44987d8f-85c8-4f7b-bec7-5fb0c24d05c2_3/source/deno.json",
+    "ezbr_sha256": "1dd223922bf1f7e43f92617349c96319d025777b4323fd293d4bcea7aa677f6c"
+  },
+  "github": {
+    "baselineCommit": "12f550147cc0e0123907079649a98fa4f555379c",
+    "permissions": {
+      "pull": true,
+      "push": false
+    },
+    "frontendDeployed": false
+  },
+  "database": {
+    "cron": {
+      "jobid": 8,
+      "active": true,
+      "command": "select public.agent_ops_recover_stale_chat('agent-factory',25);",
+      "jobname": "agent-ops-runtime-recovery",
+      "schedule": "* * * * *"
+    },
+    "runRows": 0,
+    "settings": {
+      "rpd": 50,
+      "rpm": 6,
+      "aiEnabled": false
+    },
+    "chatTurns": 0,
+    "checkedAt": "2026-09-21T03:35:15.678068+00:00",
+    "agentCount": 16,
+    "anonCanClaim": false,
+    "authCanFinish": false,
+    "authCanSubmit": true,
+    "agentOpsTables": 18,
+    "verifiedAgents": 0,
+    "serviceCanFinish": true,
+    "tablesWithoutRls": 0,
+    "requiresRunLogCount": 16,
+    "authCanVerifyInternal": false
+  }
+}

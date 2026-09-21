@@ -1,0 +1,3637 @@
+{
+  "scope": [
+    "public except public.agent_ops_* functions",
+    "private",
+    "auth metadata only",
+    "storage metadata only"
+  ],
+  "objects": [
+    {
+      "hash": "0c2ebde338b3ad48823f7a728743b164",
+      "name": "auth.aal_level",
+      "category": "enum"
+    },
+    {
+      "hash": "68e0bd9a3e9090c8087473b16f0c5d84",
+      "name": "auth.code_challenge_method",
+      "category": "enum"
+    },
+    {
+      "hash": "13cb098c73dcc012e958004b346b8d64",
+      "name": "auth.factor_status",
+      "category": "enum"
+    },
+    {
+      "hash": "3477704fce786078ee8f2499d90dc934",
+      "name": "auth.factor_type",
+      "category": "enum"
+    },
+    {
+      "hash": "dc75d88a5fce23ad797ae3388a671540",
+      "name": "auth.oauth_authorization_status",
+      "category": "enum"
+    },
+    {
+      "hash": "92ee2c3e7feb8c50aeb969b06023dfb3",
+      "name": "auth.oauth_client_type",
+      "category": "enum"
+    },
+    {
+      "hash": "db38656b3e128da8130e0c942076a0b3",
+      "name": "auth.oauth_registration_type",
+      "category": "enum"
+    },
+    {
+      "hash": "1a9a3e6e3e808619919eb15a623501d1",
+      "name": "auth.oauth_response_type",
+      "category": "enum"
+    },
+    {
+      "hash": "a5532dd4216ec53b50fefeb426c31048",
+      "name": "auth.one_time_token_type",
+      "category": "enum"
+    },
+    {
+      "hash": "5ee61fb758980702cb6f9799852c4436",
+      "name": "public.rhs_audit_action",
+      "category": "enum"
+    },
+    {
+      "hash": "73b04f8d8345e90298faece1402ab807",
+      "name": "public.rhs_employment_status",
+      "category": "enum"
+    },
+    {
+      "hash": "df00c5e1f27c88df9fd09febf0b8e30f",
+      "name": "public.rhs_gender",
+      "category": "enum"
+    },
+    {
+      "hash": "50241526e23a76fa92e0f57e16f7a6d0",
+      "name": "public.rhs_result_status",
+      "category": "enum"
+    },
+    {
+      "hash": "9048c2dbc56fdb3d60b1fd1bf3d52d42",
+      "name": "public.rhs_role",
+      "category": "enum"
+    },
+    {
+      "hash": "143d3189c55e25624c06444531d63ebe",
+      "name": "public.rhs_round_status",
+      "category": "enum"
+    },
+    {
+      "hash": "738f1d9ed3a18ec2374955fb5295f759",
+      "name": "public.rhs_rule_gender",
+      "category": "enum"
+    },
+    {
+      "hash": "b1acba2cbb517aa9166d5f1c2b7669b0",
+      "name": "public.rhs_transfer_action",
+      "category": "enum"
+    },
+    {
+      "hash": "91658a81fe9ca0ab4b1dff4111c8ea2a",
+      "name": "public.rhs_transfer_status",
+      "category": "enum"
+    },
+    {
+      "hash": "73a2435c32055a03881a6c0539638ea0",
+      "name": "public.rhs_visibility",
+      "category": "enum"
+    },
+    {
+      "hash": "3a75ed850e4318ce2d2beba996606239",
+      "name": "storage.buckettype",
+      "category": "enum"
+    },
+    {
+      "hash": "111fbca62069c46d023d1d16d0693c1b",
+      "name": "auth.email()",
+      "category": "function"
+    },
+    {
+      "hash": "5b76b35a61f630b2014a2e7f7b79cccf",
+      "name": "auth.jwt()",
+      "category": "function"
+    },
+    {
+      "hash": "89add57646316a524258e6601ecf7c2b",
+      "name": "auth.role()",
+      "category": "function"
+    },
+    {
+      "hash": "57ff4d7a12739ef2f9a5dec7ec4f9edb",
+      "name": "auth.uid()",
+      "category": "function"
+    },
+    {
+      "hash": "16ae7bba647fe9fefcd4bb346e2d8202",
+      "name": "private.can_approve_intelligence()",
+      "category": "function"
+    },
+    {
+      "hash": "5999b7ed48acbd31f1232275d132dafd",
+      "name": "private.can_manage_intelligence()",
+      "category": "function"
+    },
+    {
+      "hash": "22472fa95814394223565a9496a746a4",
+      "name": "private.can_manage_spu_calendar_source(p_source_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "aceb1ee319723e383caa8df102f9cb58",
+      "name": "private.can_manage_spu_calendar_storage_path(p_path text)",
+      "category": "function"
+    },
+    {
+      "hash": "98c91997dab392e10f482f2b2e6d7ca5",
+      "name": "private.can_publish_spu_calendar_source(p_source_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "1d9b86fc476b688413724c05ae752942",
+      "name": "private.can_read_foreign_faculty_department(resource_department text)",
+      "category": "function"
+    },
+    {
+      "hash": "43de4bc67d3e819adb39067ba67cdbd0",
+      "name": "private.can_read_hr_usage()",
+      "category": "function"
+    },
+    {
+      "hash": "ddc40526733f626e0daaeb6acb45a937",
+      "name": "private.can_read_people_data()",
+      "category": "function"
+    },
+    {
+      "hash": "7272f8a063dedac66bd9ddddd0a5fea2",
+      "name": "private.can_view_hr_menu(required_menu text)",
+      "category": "function"
+    },
+    {
+      "hash": "2a9ebdaef1f668dcc4fb217fa9cd3e56",
+      "name": "private.can_view_strategic_intelligence()",
+      "category": "function"
+    },
+    {
+      "hash": "cdc3466492a0fbb563d168244558863b",
+      "name": "private.enforce_hr_requirement_ready_to_build()",
+      "category": "function"
+    },
+    {
+      "hash": "38fba4fe9cc723ead67160dfb06186ba",
+      "name": "private.enforce_hr_security_gate_pass()",
+      "category": "function"
+    },
+    {
+      "hash": "f4c0420d4e19f700545d61dde28e886d",
+      "name": "private.handle_hr_agent_run_terminal_state()",
+      "category": "function"
+    },
+    {
+      "hash": "7478c7657040b9e2c026850600320f11",
+      "name": "private.handle_new_hr_user()",
+      "category": "function"
+    },
+    {
+      "hash": "724e7c2a7877d844524cb070158c9e63",
+      "name": "private.has_enterprise_security_access()",
+      "category": "function"
+    },
+    {
+      "hash": "5827d7322944b76f671accbee9fdcff4",
+      "name": "private.has_hr_role(required_roles text[])",
+      "category": "function"
+    },
+    {
+      "hash": "9f9c10db88be3ffd251a99934ef18b5f",
+      "name": "private.hr01_allowed()",
+      "category": "function"
+    },
+    {
+      "hash": "a42613a68939ee56732c7a954b4fb73a",
+      "name": "private.hr01_bootstrap()",
+      "category": "function"
+    },
+    {
+      "hash": "01989d802dc3c274e8b17af3d0fab525",
+      "name": "private.hr01_code(kind text, classification text)",
+      "category": "function"
+    },
+    {
+      "hash": "c5136beb3f756063744570184579ad20",
+      "name": "private.hr01_command(p_action text, p_data jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "ab4b01f7a3223f7e15104d96e39c7384",
+      "name": "private.hr01_due_replacements()",
+      "category": "function"
+    },
+    {
+      "hash": "1d08e0581f974f05cb867d116fb74679",
+      "name": "private.hr01_edit_recruitment_details(p_target text, p_data jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "5ea121fcceb324c4b595685d8292c85c",
+      "name": "private.hr01_employment_exit()",
+      "category": "function"
+    },
+    {
+      "hash": "61bacf1333037fd8ebea6ba5b9fb3269",
+      "name": "private.hr01_publish_request(rid uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "1e66b4699f3ca85cb3eacfdb8d7f50e0",
+      "name": "private.hr01_service_settings()",
+      "category": "function"
+    },
+    {
+      "hash": "3ff357d6df8a3a0be86b8b448407daff",
+      "name": "private.hr01_staff()",
+      "category": "function"
+    },
+    {
+      "hash": "66d4445b5cef9cf5bc56c3656e5a1590",
+      "name": "private.hr03_can_approve()",
+      "category": "function"
+    },
+    {
+      "hash": "a18bccf702c8a2d17e35c01a723fa6df",
+      "name": "private.hr03_can_manage()",
+      "category": "function"
+    },
+    {
+      "hash": "388c4aad4b192275ea3e1ed969e818d4",
+      "name": "private.hr03_can_review()",
+      "category": "function"
+    },
+    {
+      "hash": "f1e28b9080917abe5fb8ce1df6604acf",
+      "name": "private.hr03_can_submit_person(p_person_id uuid, p_org_unit_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "97a463885b78add805b6554b21e1d0c8",
+      "name": "private.hr03_can_view_evidence_person(p_person_id uuid, p_org_unit_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "440e03b217728aa55618ac8179360237",
+      "name": "private.hr03_can_view_person(p_person_id uuid, p_org_unit_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "439532b219cf482885ce70561df55971",
+      "name": "private.hr03_current_person_id()",
+      "category": "function"
+    },
+    {
+      "hash": "e5809904a91e45d6decb7edc98f5d082",
+      "name": "private.hr03_set_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "a6a1950772a04cb1d2c0fb16fbf5a8c3",
+      "name": "private.hr03_write_audit()",
+      "category": "function"
+    },
+    {
+      "hash": "c78dc7ee2487b44aa74d8b48f2bf17ea",
+      "name": "private.hr_agent_report_api_emit(p_agent_code text, p_event text, p_payload jsonb, p_idempotency_key text)",
+      "category": "function"
+    },
+    {
+      "hash": "6a36b83863d08333ca85330e4c472d05",
+      "name": "private.initialize_hr_requirement_gates()",
+      "category": "function"
+    },
+    {
+      "hash": "8f93a082c4bbd7d291f1c8ede1c9f254",
+      "name": "private.is_active_intelligence_user()",
+      "category": "function"
+    },
+    {
+      "hash": "5ac9d533221f294bc05bf603e9c950a4",
+      "name": "private.is_hr_admin()",
+      "category": "function"
+    },
+    {
+      "hash": "61a82bfc41f8f33559ba83606396ee47",
+      "name": "private.is_recruitment_admin()",
+      "category": "function"
+    },
+    {
+      "hash": "5faed25cf3c545cd89aec8914f0ec898",
+      "name": "private.prepare_hr_agent_run_update()",
+      "category": "function"
+    },
+    {
+      "hash": "2f68ebcc5d2e23f69ee2a3bbd6057383",
+      "name": "private.purge_hr_agent_operational_data()",
+      "category": "function"
+    },
+    {
+      "hash": "d716effd73ff8601098b4cfa26afb6ed",
+      "name": "private.record_hr_usage(p_event_id uuid, p_event_type text, p_menu_key text, p_target_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "b8e1699a79e9716fd61cbdea32c8052a",
+      "name": "private.spu_academic_year_for_date(p_date date)",
+      "category": "function"
+    },
+    {
+      "hash": "fcccf81983aae9214a7eeff757683a51",
+      "name": "private.spu_apply_security_trigger()",
+      "category": "function"
+    },
+    {
+      "hash": "5d382fc4da25956c25be26d3a324d0b5",
+      "name": "private.spu_calendar_capture_audit()",
+      "category": "function"
+    },
+    {
+      "hash": "11002385d8bc0e5fff98a6e5c5783f17",
+      "name": "private.spu_calendar_enforce_publication_workflow()",
+      "category": "function"
+    },
+    {
+      "hash": "e017b15d1cf19ba8b03c3688863b4331",
+      "name": "private.spu_calendar_guard_web_owned_event()",
+      "category": "function"
+    },
+    {
+      "hash": "6d340132c62a1144fa6bc33e34b72308",
+      "name": "private.spu_calendar_touch_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "e64087d52abec990edc9f644b42ec6a0",
+      "name": "private.spu_enforce_security_gate_pass()",
+      "category": "function"
+    },
+    {
+      "hash": "0b5dfcae871a9a9bbb05c5cc2465f193",
+      "name": "private.spu_initialize_security_gates()",
+      "category": "function"
+    },
+    {
+      "hash": "526b87bd9fe0962d030b5fcdb0ac8bef",
+      "name": "private.spu_required_scans_for_trigger(p_trigger text)",
+      "category": "function"
+    },
+    {
+      "hash": "e1d0b81c69caaaa247b9c1cdb7d5fc96",
+      "name": "private.sync_spu_web_calendar(p_trigger_type text)",
+      "category": "function"
+    },
+    {
+      "hash": "b515d01d023c887685fb519ca4dac323",
+      "name": "private.touch_hr_master_plan_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "7c19fa8ea286940b2752e5c993c970ae",
+      "name": "private.touch_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "ec6cdf4d76e62b9dd3c9210feec6cd24",
+      "name": "public.admin_delete_hr_blocklist(p_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "c65d88a6915ec0df35ec7e05430938fd",
+      "name": "public.admin_set_menu_permission(p_role text, p_menu_key text, p_can_view boolean)",
+      "category": "function"
+    },
+    {
+      "hash": "6c56accd891cb99bc9c901e30bc1a376",
+      "name": "public.admin_update_hr_member(p_user_id uuid, p_role text, p_status text, p_full_name text)",
+      "category": "function"
+    },
+    {
+      "hash": "a376cf0a6f31e126c505d8db938449be",
+      "name": "public.admin_update_hr_member_access(p_user_id uuid, p_role text, p_status text, p_full_name text, p_department text, p_campus text)",
+      "category": "function"
+    },
+    {
+      "hash": "52d1c0f9d2e029bf50b39eb99705face",
+      "name": "public.admin_upsert_hr_blocklist(p_entry_type text, p_entry_value text, p_reason text)",
+      "category": "function"
+    },
+    {
+      "hash": "344ad4b8357d2c43270ebee4e88aced0",
+      "name": "public.citext(boolean)",
+      "category": "function"
+    },
+    {
+      "hash": "da5c65bffb4e5898a60ac9b1f5458700",
+      "name": "public.citext(character)",
+      "category": "function"
+    },
+    {
+      "hash": "0ca921ec6001e0dc31d9ad794b35956f",
+      "name": "public.citext(inet)",
+      "category": "function"
+    },
+    {
+      "hash": "005c874f8dc5ba96ba6204b143b28e86",
+      "name": "public.citext_cmp(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "7736154a95e0b71d2733dbaddd07cfc7",
+      "name": "public.citext_eq(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "32918590eb3532bf084e14d6b9801935",
+      "name": "public.citext_ge(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "695f0b34da3bd466bbb1c59ab2518c04",
+      "name": "public.citext_gt(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "2371dd38f3e382a0f1068170d33b0672",
+      "name": "public.citext_hash(citext)",
+      "category": "function"
+    },
+    {
+      "hash": "9f5e9ad3141948c66f859b2021fc89ab",
+      "name": "public.citext_hash_extended(citext, bigint)",
+      "category": "function"
+    },
+    {
+      "hash": "4f6eab6a898e59ec7d5b7aee33bbf5ba",
+      "name": "public.citext_larger(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "d680fdd660c0de517b5303b79cfbf4b5",
+      "name": "public.citext_le(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "49f771623f4881aa239db554f898d57d",
+      "name": "public.citext_lt(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "030d1966879fb9cf27f1c37929ad09e0",
+      "name": "public.citext_ne(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "fc74a5fcd385a1e065cf89eadf78455a",
+      "name": "public.citext_pattern_cmp(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "9dd75d7cae5b7a16b2b9eb336762d7b5",
+      "name": "public.citext_pattern_ge(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "726bcd999e9de45d6b0c23de8930e2e1",
+      "name": "public.citext_pattern_gt(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "91d60485742c1285771e9dabbaf16bd4",
+      "name": "public.citext_pattern_le(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "298d959f4d6cbbc90512421dffcda2df",
+      "name": "public.citext_pattern_lt(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "83f494aaf6189a9b8f13adcd48245c79",
+      "name": "public.citext_smaller(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "8bcea694f10debfbde2c7b72d455613f",
+      "name": "public.citextin(cstring)",
+      "category": "function"
+    },
+    {
+      "hash": "c2375f67f9a0247ae80d1dc3a741dd29",
+      "name": "public.citextout(citext)",
+      "category": "function"
+    },
+    {
+      "hash": "a6308474b8f928c36dfc44c51ec4c145",
+      "name": "public.citextrecv(internal)",
+      "category": "function"
+    },
+    {
+      "hash": "c6a994ffa607e01f461c8d37bf4f549d",
+      "name": "public.citextsend(citext)",
+      "category": "function"
+    },
+    {
+      "hash": "ecaa6fdb4ced449550883795a75334e7",
+      "name": "public.dl_access_token_hook(event jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "beb6854dcd145c545b8a13614d0afe19",
+      "name": "public.dl_admin_add_applicant(pin text, p_id text, p_prefix text, p_name text, p_position text, p_round text)",
+      "category": "function"
+    },
+    {
+      "hash": "b0c8c482229d5a9901c16fcc2de2476a",
+      "name": "public.dl_admin_delete_session(pin text, p_code text)",
+      "category": "function"
+    },
+    {
+      "hash": "6667bb3529b4bd5dd1bfbd4989852afd",
+      "name": "public.dl_admin_sessions(pin text)",
+      "category": "function"
+    },
+    {
+      "hash": "5f700ccb293c8f4b7fe3cf8dd3d9e1d9",
+      "name": "public.dl_assert_action(perm text, action text, target_type text, target_id text, before_value jsonb, after_value jsonb, reason text)",
+      "category": "function"
+    },
+    {
+      "hash": "bc2d6aa70e64fe264d8ec8fbc4dddd65",
+      "name": "public.dl_bank_delete(pin text, p_id text)",
+      "category": "function"
+    },
+    {
+      "hash": "efe5151efe2cbc6fa2690db246f8644b",
+      "name": "public.dl_bank_upsert(pin text, payload jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "289adb43aa7660ce7aeeb874a2923b4f",
+      "name": "public.dl_enforce_spu_email()",
+      "category": "function"
+    },
+    {
+      "hash": "018bed2062012ec1d550cb916c25ba8d",
+      "name": "public.dl_has_perm(p text)",
+      "category": "function"
+    },
+    {
+      "hash": "1910681478b9bb6a85b8664de4dc1aa7",
+      "name": "public.dl_jwt_aal()",
+      "category": "function"
+    },
+    {
+      "hash": "0244ac2c27419b46f308add2b78f4dc6",
+      "name": "public.dl_jwt_role()",
+      "category": "function"
+    },
+    {
+      "hash": "716f9f6450fe510e4cb6a777bdef3b00",
+      "name": "public.dl_save_session(payload jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "93f22c21b2a3c02d800d10953932177b",
+      "name": "public.dl_set_role(target_user uuid, target_role text, activate boolean, reason text)",
+      "category": "function"
+    },
+    {
+      "hash": "7a671b0c2fa005b17cdbfb7f88f5b5fd",
+      "name": "public.hr01_bootstrap()",
+      "category": "function"
+    },
+    {
+      "hash": "4fa2e490068d8c43ac980f53a17ff6a5",
+      "name": "public.hr01_command(p_action text, p_data jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "34dc3aa949a2ff34a08d9256bdeb1fa6",
+      "name": "public.hr01_service(p_action text, p_data jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "5ca836fe2ea5e2ca86fa558c10f4f501",
+      "name": "public.hr03_confirm_application(p_outcome_id uuid, p_application_note text)",
+      "category": "function"
+    },
+    {
+      "hash": "1eda63761959ad7f10396e755329a207",
+      "name": "public.hr03_review_evidence(p_evidence_id uuid, p_decision text, p_review_note text)",
+      "category": "function"
+    },
+    {
+      "hash": "89593d6e7e3f65b0458ca46b38d33ee0",
+      "name": "public.hr03_transition_enrollment(p_enrollment_id uuid, p_status text)",
+      "category": "function"
+    },
+    {
+      "hash": "118e2ae3ef20bbc38572ec23d5bfc529",
+      "name": "public.hr03_transition_plan(p_plan_id uuid, p_status text)",
+      "category": "function"
+    },
+    {
+      "hash": "aef90a0b72e50997648d31721152dbdf",
+      "name": "public.hr03_verify_outcome(p_outcome_id uuid, p_verified_level integer, p_verification_method text, p_verification_note text)",
+      "category": "function"
+    },
+    {
+      "hash": "abb4248507b6bb8e58a0eefcdceae4dd",
+      "name": "public.import_spu_calendar_file(p_source_id uuid, p_file_name text, p_storage_path text, p_mime_type text, p_sha256 text, p_academic_year_be integer, p_events jsonb, p_warnings jsonb, p_source_metadata jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "5055be4514c1e65f37c3c86f3720335c",
+      "name": "public.people_intelligence_manage_member(p_user_id uuid, p_status text, p_role text)",
+      "category": "function"
+    },
+    {
+      "hash": "f5fc876f5b103df62cad980e1ecf0a20",
+      "name": "public.read_hr_usage_logs(p_email text, p_menu_key text, p_event_type text, p_from timestamp with time zone, p_until timestamp with time zone, p_before_time timestamp with time zone, p_before_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "93c264c31ba40c92c934ac3f7a93fd6e",
+      "name": "public.record_hr_usage(p_event_id uuid, p_event_type text, p_menu_key text, p_target_id uuid)",
+      "category": "function"
+    },
+    {
+      "hash": "e57526bffe36943264f5963ba50c06c6",
+      "name": "public.record_my_hr_login()",
+      "category": "function"
+    },
+    {
+      "hash": "46052f07eb0c82a04cf70311dbdb7ec1",
+      "name": "public.regexp_match(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "7bb3cd35fc0849945ddac7fa32f00fc6",
+      "name": "public.regexp_match(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "7ff4a96c25ccf915dbe64f9c8d53c24b",
+      "name": "public.regexp_matches(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "2681303a8e95907ea7c7f2d27f2835fb",
+      "name": "public.regexp_matches(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "c8bc646a70ce600b0c5cc225792e835f",
+      "name": "public.regexp_replace(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "a92f887f52684d9165330dd549f23356",
+      "name": "public.regexp_replace(citext, citext, text, text)",
+      "category": "function"
+    },
+    {
+      "hash": "596cf5eaa66c9b4392815b2f11859ed7",
+      "name": "public.regexp_split_to_array(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "e809c794f536b913da3a1575ae493e46",
+      "name": "public.regexp_split_to_array(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "275b3792adeed92f9cb1d81fe39875a2",
+      "name": "public.regexp_split_to_table(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "c122f258d649630670962bc69e60e493",
+      "name": "public.regexp_split_to_table(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "a0b62a016020475f556d6a9c979d696c",
+      "name": "public.replace(citext, citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "8146a17fa2effc76b975c5db1da5a69d",
+      "name": "public.rhs_audit_row()",
+      "category": "function"
+    },
+    {
+      "hash": "05bc0e37c107ce6da5fdee565c255cbd",
+      "name": "public.rhs_block_log_mutation()",
+      "category": "function"
+    },
+    {
+      "hash": "de7ddafee39ab3377c46dbbd78e3fab8",
+      "name": "public.rhs_current_email()",
+      "category": "function"
+    },
+    {
+      "hash": "1122d972f6fa7aa856c4282cf1492d75",
+      "name": "public.rhs_guard_last_admin()",
+      "category": "function"
+    },
+    {
+      "hash": "cc37dd98696ae84911f85bd664561107",
+      "name": "public.rhs_handle_new_auth_user()",
+      "category": "function"
+    },
+    {
+      "hash": "4433cceac1e37318e85cd103ba695499",
+      "name": "public.rhs_is_active_user()",
+      "category": "function"
+    },
+    {
+      "hash": "94a344d5afe5ad857e44f521a9598563",
+      "name": "public.rhs_is_admin()",
+      "category": "function"
+    },
+    {
+      "hash": "7e7efc173cdd619cdf15a908b29c60ab",
+      "name": "public.rhs_log_transfer_finish(p_id bigint, p_status rhs_transfer_status, p_row_count integer, p_file_path text, p_error text)",
+      "category": "function"
+    },
+    {
+      "hash": "2944f35869126130b3bef91e2ecb1b7a",
+      "name": "public.rhs_log_transfer_start(p_action rhs_transfer_action, p_entity text, p_file_format text, p_file_name text, p_scope jsonb, p_ip inet, p_user_agent text)",
+      "category": "function"
+    },
+    {
+      "hash": "25f986b55dfd172a74fe8d3fbe4a9ae8",
+      "name": "public.rhs_menu_visible(p_menu_key text)",
+      "category": "function"
+    },
+    {
+      "hash": "d0e6fa73252c835ccb1de60b144a2957",
+      "name": "public.rhs_set_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "d1069fc5cc24b1ca0ec842dff40c3ef4",
+      "name": "public.rhs_stamp_reviewer()",
+      "category": "function"
+    },
+    {
+      "hash": "1a29808c991a90f13e229327a13bcc6f",
+      "name": "public.rhs_transfer_anomalies(p_window interval)",
+      "category": "function"
+    },
+    {
+      "hash": "91acfb1518b9f47ee31fb0e8a922dc6e",
+      "name": "public.set_updated_at()",
+      "category": "function"
+    },
+    {
+      "hash": "6491f20fb78d0389df28f1f6ed80a846",
+      "name": "public.split_part(citext, citext, integer)",
+      "category": "function"
+    },
+    {
+      "hash": "194be8ba68f396fa8cfe9a010150f90a",
+      "name": "public.strpos(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "a230f113f36a9a2e417e72528d52b58e",
+      "name": "public.sync_spu_university_events()",
+      "category": "function"
+    },
+    {
+      "hash": "a295ffc50e99cd578dd6e27cc9dd12aa",
+      "name": "public.texticlike(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "94f1c5ec0ad49fc3fc0d22969bd74be4",
+      "name": "public.texticlike(citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "f78df11eb7be637f94acc66ed3a48feb",
+      "name": "public.texticnlike(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "8172f5a35aff60efa5bcf37d77263ed0",
+      "name": "public.texticnlike(citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "a5fb3216fccfa293f7d9ba9d543dd43b",
+      "name": "public.texticregexeq(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "c49f9a765ab644e029452785d10948d8",
+      "name": "public.texticregexeq(citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "5bb28fefd35eb61eb9a643bda786ff41",
+      "name": "public.texticregexne(citext, citext)",
+      "category": "function"
+    },
+    {
+      "hash": "99bd738b44cc9b59e65e5532cd9115a9",
+      "name": "public.texticregexne(citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "038950ca8d5b7784e7ce10bef3f3c5c2",
+      "name": "public.translate(citext, citext, text)",
+      "category": "function"
+    },
+    {
+      "hash": "2d68e91cb932eac87bb2c9f0d422a311",
+      "name": "storage.allow_any_operation(expected_operations text[])",
+      "category": "function"
+    },
+    {
+      "hash": "9c17ddbb7ea42ca31c36b72ecda627f6",
+      "name": "storage.allow_only_operation(expected_operation text)",
+      "category": "function"
+    },
+    {
+      "hash": "ddb30eab1583a2608ff16187e5883ee1",
+      "name": "storage.can_insert_object(bucketid text, name text, owner uuid, metadata jsonb)",
+      "category": "function"
+    },
+    {
+      "hash": "7ff31c0fb141621fb7bc99cf1f0ace97",
+      "name": "storage.enforce_bucket_name_length()",
+      "category": "function"
+    },
+    {
+      "hash": "10719465b2d42f432b8b8905d07f04d5",
+      "name": "storage.extension(name text)",
+      "category": "function"
+    },
+    {
+      "hash": "4b5c017486306eb7dc961b52511360ad",
+      "name": "storage.filename(name text)",
+      "category": "function"
+    },
+    {
+      "hash": "a35731b09c83bc1490c8f2a8bd3a9fcd",
+      "name": "storage.foldername(name text)",
+      "category": "function"
+    },
+    {
+      "hash": "93b0d4c4819e8c4bbd76a2e4ad1f366f",
+      "name": "storage.get_common_prefix(p_key text, p_prefix text, p_delimiter text)",
+      "category": "function"
+    },
+    {
+      "hash": "def2930954a73f0a97a4f917c7aa909c",
+      "name": "storage.get_size_by_bucket()",
+      "category": "function"
+    },
+    {
+      "hash": "e65de167b88beb032c4696851ab00703",
+      "name": "storage.list_multipart_uploads_with_delimiter(bucket_id text, prefix_param text, delimiter_param text, max_keys integer, next_key_token text, next_upload_token text)",
+      "category": "function"
+    },
+    {
+      "hash": "a23d72e3e8cab24801c78eda03c5cb51",
+      "name": "storage.list_objects_with_delimiter(_bucket_id text, prefix_param text, delimiter_param text, max_keys integer, start_after text, next_token text, sort_order text)",
+      "category": "function"
+    },
+    {
+      "hash": "0c5f705ac4de742c32be5da096b1c024",
+      "name": "storage.operation()",
+      "category": "function"
+    },
+    {
+      "hash": "5491fba88e164a8a64ba8df3a434b311",
+      "name": "storage.protect_delete()",
+      "category": "function"
+    },
+    {
+      "hash": "1335ee86ebb17249fb15b602be117cee",
+      "name": "storage.search(prefix text, bucketname text, limits integer, levels integer, offsets integer, search text, sortcolumn text, sortorder text)",
+      "category": "function"
+    },
+    {
+      "hash": "312842191ce15e5932ae9bd35058cd4e",
+      "name": "storage.search_by_timestamp(p_prefix text, p_bucket_id text, p_limit integer, p_level integer, p_start_after text, p_sort_order text, p_sort_column text, p_sort_column_after text)",
+      "category": "function"
+    },
+    {
+      "hash": "8d1fc617a0f14f602870cf314693ffcd",
+      "name": "storage.search_v2(prefix text, bucket_name text, limits integer, levels integer, start_after text, sort_order text, sort_column text, sort_column_after text)",
+      "category": "function"
+    },
+    {
+      "hash": "00d897967366936826e3fb0c04fb221f",
+      "name": "storage.update_updated_at_column()",
+      "category": "function"
+    },
+    {
+      "hash": "ae83bb78420c3021f1b249b1ca5a77e2",
+      "name": "public.dl_applicants.dl_applicants_read",
+      "category": "policy"
+    },
+    {
+      "hash": "04a6b3bbe124b7edd8c431ffe128b32c",
+      "name": "public.dl_attitude_bank.dl_attitude_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "51cab541eda8c07bc5297547530ffbdf",
+      "name": "public.dl_config_audit_logs.dl_audit_read",
+      "category": "policy"
+    },
+    {
+      "hash": "a3dcabca336d1b8ca53f3586285e6964",
+      "name": "public.dl_role_permissions.dl_perm_read",
+      "category": "policy"
+    },
+    {
+      "hash": "26dd73dcad29328300d3aad3c86f3a94",
+      "name": "public.dl_security_events.dl_sec_insert",
+      "category": "policy"
+    },
+    {
+      "hash": "bbf91c4db1c6edd0f7143769193823ff",
+      "name": "public.dl_security_events.dl_sec_read",
+      "category": "policy"
+    },
+    {
+      "hash": "474f412b6e7789b7c3fd37649be50251",
+      "name": "public.dl_sessions.hr01 users read digital literacy sessions",
+      "category": "policy"
+    },
+    {
+      "hash": "627be249093f2ab7594c6e3ffcf24e3b",
+      "name": "public.dl_user_roles.dl_roles_read",
+      "category": "policy"
+    },
+    {
+      "hash": "0d6ea3c41e2f26992bf09d70bbe6e913",
+      "name": "public.foreign_faculty_activity_logs.authorized staff read scoped foreign faculty activity logs",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.foreign_faculty_activity_logs.hr admins delete foreign faculty activity logs",
+      "category": "policy"
+    },
+    {
+      "hash": "8989fc1401481dbc7d7e73f2ba9c1846",
+      "name": "public.foreign_faculty_activity_logs.hr staff create foreign faculty activity logs",
+      "category": "policy"
+    },
+    {
+      "hash": "3592ef503c8b06bd6daba2f14a691785",
+      "name": "public.foreign_faculty_cases.authorized staff read scoped foreign faculty cases",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.foreign_faculty_cases.hr admins delete foreign faculty cases",
+      "category": "policy"
+    },
+    {
+      "hash": "dd027455d3d0c5b4ab2d57ecf0b8e0a0",
+      "name": "public.foreign_faculty_cases.hr operators create foreign faculty cases",
+      "category": "policy"
+    },
+    {
+      "hash": "f0050be994f81585691129fab1ff0b0c",
+      "name": "public.foreign_faculty_cases.hr staff update foreign faculty cases",
+      "category": "policy"
+    },
+    {
+      "hash": "55a570d50745738238e0325aa7fed54e",
+      "name": "public.foreign_faculty_deadlines.authorized staff read scoped foreign faculty deadlines",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.foreign_faculty_deadlines.hr admins delete foreign faculty deadlines",
+      "category": "policy"
+    },
+    {
+      "hash": "dd027455d3d0c5b4ab2d57ecf0b8e0a0",
+      "name": "public.foreign_faculty_deadlines.hr operators create foreign faculty deadlines",
+      "category": "policy"
+    },
+    {
+      "hash": "f0050be994f81585691129fab1ff0b0c",
+      "name": "public.foreign_faculty_deadlines.hr staff update foreign faculty deadlines",
+      "category": "policy"
+    },
+    {
+      "hash": "a405242075335456403c057dc16dcb2c",
+      "name": "public.foreign_faculty_documents.authorized staff read scoped foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.foreign_faculty_documents.hr admins delete foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "dd027455d3d0c5b4ab2d57ecf0b8e0a0",
+      "name": "public.foreign_faculty_documents.hr operators create foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "079e02e2ce26b6d5cf73b56f3c4166d0",
+      "name": "public.foreign_faculty_documents.hr reviewers update foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "d95623e7e7641ed31e76390ab6a5750e",
+      "name": "public.foreign_faculty_profiles.authorized staff read scoped foreign faculty profiles",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.foreign_faculty_profiles.hr admins delete foreign faculty profiles",
+      "category": "policy"
+    },
+    {
+      "hash": "dd027455d3d0c5b4ab2d57ecf0b8e0a0",
+      "name": "public.foreign_faculty_profiles.hr operators create foreign faculty profiles",
+      "category": "policy"
+    },
+    {
+      "hash": "079e02e2ce26b6d5cf73b56f3c4166d0",
+      "name": "public.foreign_faculty_profiles.hr staff update foreign faculty profiles",
+      "category": "policy"
+    },
+    {
+      "hash": "f3c63b97cb35559f1b88f88665ab7ac2",
+      "name": "public.hr03_audit_log.hr03 audit read",
+      "category": "policy"
+    },
+    {
+      "hash": "eb8486b059cac4ef126feca3049081c8",
+      "name": "public.hr_access_blocklist.admins read blocklist",
+      "category": "policy"
+    },
+    {
+      "hash": "eb8486b059cac4ef126feca3049081c8",
+      "name": "public.hr_admin_audit_logs.admins read audit logs",
+      "category": "policy"
+    },
+    {
+      "hash": "39121def16c263f05d3ea569e1dd4825",
+      "name": "public.hr_admin_audit_logs.people intelligence admins insert audit logs",
+      "category": "policy"
+    },
+    {
+      "hash": "b166f756c4cab128fd25e9feaff553e0",
+      "name": "public.hr_agent_api_keys.deny direct access to agent api keys",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_registry.authorized hr users read agent registry",
+      "category": "policy"
+    },
+    {
+      "hash": "aae4ca5ae9cbe06e752c33743b333399",
+      "name": "public.hr_agent_registry.hr admins manage agent registry",
+      "category": "policy"
+    },
+    {
+      "hash": "258c9ba91bf7c523e3b45889158b28e2",
+      "name": "public.hr_agent_reports.authorized contributors submit agent reports",
+      "category": "policy"
+    },
+    {
+      "hash": "83af5fab510031842f38224736161e31",
+      "name": "public.hr_agent_reports.authorized contributors update agent reports",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_reports.authorized hr users read agent reports",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_agent_reports.hr admins delete agent reports",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_run_steps.authorized hr users read agent run steps",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_runs.authorized hr users read agent runs",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_runtime_controls.authorized hr users read agent runtime controls",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_agent_runtime_controls.hr admins delete agent runtime controls",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_agent_runtime_controls.hr admins insert agent runtime controls",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_agent_runtime_controls.hr admins update agent runtime controls",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_supabase_usage.authorized hr users read agent supabase usage",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_agent_system_logs.authorized hr users read agent system logs",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_application_stages.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_applications.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "b7ff36d2d4469e9007e2bf626958f309",
+      "name": "public.hr_approval_cases.hr01_approval_participant",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.hr_approval_cases.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_candidate_assessments.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_candidates.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_competencies.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "99c32a065285f87be3eade750446c73b",
+      "name": "public.hr_competencies.hr01_read_skills",
+      "category": "policy"
+    },
+    {
+      "hash": "63362d0b75cb7eac130aeca6fc9cc5f0",
+      "name": "public.hr_dashboard_layouts.authorized users create own dashboard layouts",
+      "category": "policy"
+    },
+    {
+      "hash": "81ed0a7b62e09292d366b852a51f64cb",
+      "name": "public.hr_dashboard_layouts.authorized users read dashboard layouts",
+      "category": "policy"
+    },
+    {
+      "hash": "f01e651e69e48867c4eed874e19f2152",
+      "name": "public.hr_dashboard_layouts.owners delete dashboard layouts",
+      "category": "policy"
+    },
+    {
+      "hash": "e8c6b2eb14df58b84f59721598e1fdc9",
+      "name": "public.hr_dashboard_layouts.owners update dashboard layouts",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_data_dictionary.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_data_import_runs.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_data_quality_issues.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_demo_scenarios.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_development_needs.hr03 needs delete",
+      "category": "policy"
+    },
+    {
+      "hash": "7a8970ff3cf492baed3f16d2cc1dd62e",
+      "name": "public.hr_development_needs.hr03 needs insert",
+      "category": "policy"
+    },
+    {
+      "hash": "905a730f501a63086aeaea0146deaf92",
+      "name": "public.hr_development_needs.hr03 needs read",
+      "category": "policy"
+    },
+    {
+      "hash": "523a96cf53cfec2861cd40c1fc973b70",
+      "name": "public.hr_development_needs.hr03 needs update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_development_plans.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3a39d70ff03416c69e6caa5ce74d53f3",
+      "name": "public.hr_development_plans.employee hub read own development plans",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_development_plans.hr03 idp delete",
+      "category": "policy"
+    },
+    {
+      "hash": "d4c987b52b44a0e246ca243c65a6dbdc",
+      "name": "public.hr_development_plans.hr03 idp insert",
+      "category": "policy"
+    },
+    {
+      "hash": "c27a23849d887943e2f35e2eadfade54",
+      "name": "public.hr_development_plans.hr03 idp update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_employee_skills.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3a39d70ff03416c69e6caa5ce74d53f3",
+      "name": "public.hr_employee_skills.employee hub read own skills",
+      "category": "policy"
+    },
+    {
+      "hash": "d22409070d31880b596d5776e798b883",
+      "name": "public.hr_employee_skills.hr03 skills insert",
+      "category": "policy"
+    },
+    {
+      "hash": "64d93af206f36ba3af6bf9edb760d450",
+      "name": "public.hr_employee_skills.hr03 skills update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_employments.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3a39d70ff03416c69e6caa5ce74d53f3",
+      "name": "public.hr_employments.employee hub read own employment",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_exit_events.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_ict_integration_contract.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_interviews.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_job_offers.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_kpi_definitions.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_activities.hr03 activities delete",
+      "category": "policy"
+    },
+    {
+      "hash": "ca1e2b2543ce00fd4a2f8d81f86ede50",
+      "name": "public.hr_learning_activities.hr03 activities insert",
+      "category": "policy"
+    },
+    {
+      "hash": "cf88b7928702763ad6848c2143acad11",
+      "name": "public.hr_learning_activities.hr03 activities read",
+      "category": "policy"
+    },
+    {
+      "hash": "55469caad045151b7d988fe8aa6515cd",
+      "name": "public.hr_learning_activities.hr03 activities update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_learning_courses.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "73cea9df2a385dc40454a66d56d8263e",
+      "name": "public.hr_learning_courses.employee hub read course catalog",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_courses.hr03 courses delete",
+      "category": "policy"
+    },
+    {
+      "hash": "7a4cc863d2b2a48d6a717813f79bab04",
+      "name": "public.hr_learning_courses.hr03 courses insert",
+      "category": "policy"
+    },
+    {
+      "hash": "fe88cf3a9ab14d2ff6f4a2b0a9a036ab",
+      "name": "public.hr_learning_courses.hr03 courses update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_learning_enrollments.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3a39d70ff03416c69e6caa5ce74d53f3",
+      "name": "public.hr_learning_enrollments.employee hub read own enrollments",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_enrollments.hr03 enrollments delete",
+      "category": "policy"
+    },
+    {
+      "hash": "01e3a62b090f9374be74b86d823ecdc1",
+      "name": "public.hr_learning_enrollments.hr03 enrollments insert",
+      "category": "policy"
+    },
+    {
+      "hash": "c27a23849d887943e2f35e2eadfade54",
+      "name": "public.hr_learning_enrollments.hr03 enrollments update",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_evidence.hr03 evidence delete",
+      "category": "policy"
+    },
+    {
+      "hash": "7e18d12c76d32e2c0626fe2c1a839d08",
+      "name": "public.hr_learning_evidence.hr03 evidence insert",
+      "category": "policy"
+    },
+    {
+      "hash": "4bd69ccd01b5d2b9155f7edc2a86a776",
+      "name": "public.hr_learning_evidence.hr03 evidence read",
+      "category": "policy"
+    },
+    {
+      "hash": "6bc0a2f9b6f76cc6d40bd3837c466ab4",
+      "name": "public.hr_learning_evidence.hr03 evidence update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_learning_offerings.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "11bf1847afcb333600faf695c1b13b0b",
+      "name": "public.hr_learning_offerings.employee hub read learning offerings",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_offerings.hr03 offerings delete",
+      "category": "policy"
+    },
+    {
+      "hash": "7a4cc863d2b2a48d6a717813f79bab04",
+      "name": "public.hr_learning_offerings.hr03 offerings insert",
+      "category": "policy"
+    },
+    {
+      "hash": "fe88cf3a9ab14d2ff6f4a2b0a9a036ab",
+      "name": "public.hr_learning_offerings.hr03 offerings update",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_learning_outcomes.hr03 outcomes delete",
+      "category": "policy"
+    },
+    {
+      "hash": "236bd1665863ce169b7ed82c83fe08e3",
+      "name": "public.hr_learning_outcomes.hr03 outcomes insert",
+      "category": "policy"
+    },
+    {
+      "hash": "084dacf1ba1e22f54d0cae4014d8bdb6",
+      "name": "public.hr_learning_outcomes.hr03 outcomes read",
+      "category": "policy"
+    },
+    {
+      "hash": "71aa33fd2c969fb358a75fbd0ee7b447",
+      "name": "public.hr_learning_outcomes.hr03 outcomes update",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_monthly_requirements.authorized hr users read monthly requirements",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_monthly_requirements.hr admins delete monthly requirements",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_monthly_requirements.hr admins insert monthly requirements",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_monthly_requirements.hr admins update monthly requirements",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_org_roots.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_org_units.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_people.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3a39d70ff03416c69e6caa5ce74d53f3",
+      "name": "public.hr_people.employee hub read own person",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_performance_ai_insights.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_performance_competencies.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_performance_cycles.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_performance_goals.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_performance_reviews.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_person_types.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_positions.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_project_baselines.authorized hr users read project baselines",
+      "category": "policy"
+    },
+    {
+      "hash": "aae4ca5ae9cbe06e752c33743b333399",
+      "name": "public.hr_project_baselines.hr admins manage project baselines",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_project_change_requests.authorized hr users read change requests",
+      "category": "policy"
+    },
+    {
+      "hash": "aae4ca5ae9cbe06e752c33743b333399",
+      "name": "public.hr_project_change_requests.hr admins manage change requests",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_project_decisions.authorized hr users read project decisions",
+      "category": "policy"
+    },
+    {
+      "hash": "aae4ca5ae9cbe06e752c33743b333399",
+      "name": "public.hr_project_decisions.hr admins manage project decisions",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_project_months.authorized hr users read project months",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_project_months.hr admins delete project months",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_project_months.hr admins insert project months",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_project_months.hr admins update project months",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_project_work_items.authorized hr users read project work items",
+      "category": "policy"
+    },
+    {
+      "hash": "aae4ca5ae9cbe06e752c33743b333399",
+      "name": "public.hr_project_work_items.hr admins manage project work items",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_reporting_lines.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_requirement_gate_checks.authorized hr users read requirement gate checks",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_requirement_gate_checks.hr admins delete requirement gate checks",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_requirement_gate_checks.hr admins insert requirement gate checks",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_requirement_gate_checks.hr admins update requirement gate checks",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_requirement_sessions.authorized hr users read requirement sessions",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_requirement_sessions.hr admins delete requirement sessions",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_requirement_sessions.hr admins insert requirement sessions",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_requirement_sessions.hr admins update requirement sessions",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_requisitions.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "3ed31311e127a3ae6efd6cd293dc0a48",
+      "name": "public.hr_role_menu_permissions.active users read menu permissions",
+      "category": "policy"
+    },
+    {
+      "hash": "7966240f02a74b59fa1c185e2be03999",
+      "name": "public.hr_security_scan_results.authorized hr users read security scan results",
+      "category": "policy"
+    },
+    {
+      "hash": "1c7537e974ffa0c1c03cd3c0685314b8",
+      "name": "public.hr_skill_assessments.hr03 assessments delete",
+      "category": "policy"
+    },
+    {
+      "hash": "1f4274e8a3ff883359ac49c611dd12a6",
+      "name": "public.hr_skill_assessments.hr03 assessments insert",
+      "category": "policy"
+    },
+    {
+      "hash": "539023d5bdec9fc8fa3cd65019ffd81d",
+      "name": "public.hr_skill_assessments.hr03 assessments read",
+      "category": "policy"
+    },
+    {
+      "hash": "6bc0a2f9b6f76cc6d40bd3837c466ab4",
+      "name": "public.hr_skill_assessments.hr03 assessments update",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_source_reconciliation.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_ssot_ownership.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "1c68bd9855e758cde79d49620c0aa4a1",
+      "name": "public.hr_systems.HR admins can add HR systems",
+      "category": "policy"
+    },
+    {
+      "hash": "226489b7d86310bf9a294c3fa5f1b246",
+      "name": "public.hr_systems.HR admins can update HR systems",
+      "category": "policy"
+    },
+    {
+      "hash": "c1f406861e5b12c41f3edbabae43230a",
+      "name": "public.hr_systems.SPU users read enabled systems and admins read all",
+      "category": "policy"
+    },
+    {
+      "hash": "a3dcabca336d1b8ca53f3586285e6964",
+      "name": "public.hr_table_governance_registry.authenticated_can_read_table_governance",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_titles.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "4b3b735c5701d4abcb26f7cfed2a0a20",
+      "name": "public.hr_usage_logs.authorized readers see last 30 days of usage",
+      "category": "policy"
+    },
+    {
+      "hash": "1be17a1a5c61bcc71a8b54cb8400253a",
+      "name": "public.hr_usage_menu_catalog.usage log readers see menu catalog",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_user_profiles.people intelligence admins update profiles",
+      "category": "policy"
+    },
+    {
+      "hash": "7bc895036c2e8baeb290ea36c876ae7c",
+      "name": "public.hr_user_profiles.users read own hr profile",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.hr_user_roles.hr admins delete roles",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.hr_user_roles.hr admins insert roles",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.hr_user_roles.hr admins update roles",
+      "category": "policy"
+    },
+    {
+      "hash": "cb96686d1aca4a14a131932d39471cc6",
+      "name": "public.hr_user_roles.hr roles self or admin read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_workforce_monthly_snapshots.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_workforce_position_plans.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "61fc081878cd8a5d64c346f3f4f21430",
+      "name": "public.hr_workforce_unit_plans.authorized hr users can read",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_actions.intelligence admins delete actions",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_actions.intelligence managers insert actions",
+      "category": "policy"
+    },
+    {
+      "hash": "247b5ab078dd958536149afdd968f4eb",
+      "name": "public.intelligence_actions.intelligence managers update actions",
+      "category": "policy"
+    },
+    {
+      "hash": "c92e10e3f3d108e3266e76e408567ad6",
+      "name": "public.intelligence_actions.strategic users read intelligence actions",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_ai_usage.intelligence admins delete ai usage",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.intelligence_ai_usage.intelligence admins insert ai usage",
+      "category": "policy"
+    },
+    {
+      "hash": "eb8486b059cac4ef126feca3049081c8",
+      "name": "public.intelligence_ai_usage.intelligence admins read ai usage",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.intelligence_ai_usage.intelligence admins update ai usage",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_collection_runs.intelligence admins delete collection runs",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_collection_runs.intelligence managers insert collection runs",
+      "category": "policy"
+    },
+    {
+      "hash": "797b0b50fefc8bf22a17eb57496515a8",
+      "name": "public.intelligence_collection_runs.intelligence managers read collection runs",
+      "category": "policy"
+    },
+    {
+      "hash": "247b5ab078dd958536149afdd968f4eb",
+      "name": "public.intelligence_collection_runs.intelligence managers update collection runs",
+      "category": "policy"
+    },
+    {
+      "hash": "a7f5989f088e33d221737c209e465263",
+      "name": "public.intelligence_items.active people read published intelligence",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_items.intelligence admins delete intelligence",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_items.intelligence managers insert intelligence",
+      "category": "policy"
+    },
+    {
+      "hash": "918ba8c1477c503ecc4ceb88e50abc37",
+      "name": "public.intelligence_items.intelligence managers update intelligence",
+      "category": "policy"
+    },
+    {
+      "hash": "a7f5989f088e33d221737c209e465263",
+      "name": "public.intelligence_knowledge.active people read published knowledge",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_knowledge.intelligence admins delete knowledge",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_knowledge.intelligence managers insert knowledge",
+      "category": "policy"
+    },
+    {
+      "hash": "918ba8c1477c503ecc4ceb88e50abc37",
+      "name": "public.intelligence_knowledge.intelligence managers update knowledge",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_raw_items.intelligence admins delete raw items",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_raw_items.intelligence managers insert raw items",
+      "category": "policy"
+    },
+    {
+      "hash": "797b0b50fefc8bf22a17eb57496515a8",
+      "name": "public.intelligence_raw_items.intelligence managers read raw items",
+      "category": "policy"
+    },
+    {
+      "hash": "247b5ab078dd958536149afdd968f4eb",
+      "name": "public.intelligence_raw_items.intelligence managers update raw items",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_settings.intelligence admins delete settings",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.intelligence_settings.intelligence admins insert settings",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.intelligence_settings.intelligence admins update settings",
+      "category": "policy"
+    },
+    {
+      "hash": "797b0b50fefc8bf22a17eb57496515a8",
+      "name": "public.intelligence_settings.intelligence managers read settings",
+      "category": "policy"
+    },
+    {
+      "hash": "cfad56767c7c4fcfec9d662b4bc3f312",
+      "name": "public.intelligence_skill_signals.active people read published skill signals",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_skill_signals.intelligence admins delete skill signals",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_skill_signals.intelligence managers insert skill signals",
+      "category": "policy"
+    },
+    {
+      "hash": "247b5ab078dd958536149afdd968f4eb",
+      "name": "public.intelligence_skill_signals.intelligence managers update skill signals",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_sources.intelligence admins delete sources",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.intelligence_sources.intelligence admins insert sources",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.intelligence_sources.intelligence admins update sources",
+      "category": "policy"
+    },
+    {
+      "hash": "797b0b50fefc8bf22a17eb57496515a8",
+      "name": "public.intelligence_sources.intelligence managers read sources",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_story_clusters.intelligence admins delete clusters",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_story_clusters.intelligence managers insert clusters",
+      "category": "policy"
+    },
+    {
+      "hash": "797b0b50fefc8bf22a17eb57496515a8",
+      "name": "public.intelligence_story_clusters.intelligence managers read clusters",
+      "category": "policy"
+    },
+    {
+      "hash": "247b5ab078dd958536149afdd968f4eb",
+      "name": "public.intelligence_story_clusters.intelligence managers update clusters",
+      "category": "policy"
+    },
+    {
+      "hash": "26392d4310b86f20028c9254fbb6417d",
+      "name": "public.intelligence_user_interactions.users delete own intelligence interactions",
+      "category": "policy"
+    },
+    {
+      "hash": "af786eb22fe6580e0350a548f1dc0cca",
+      "name": "public.intelligence_user_interactions.users insert own intelligence interactions",
+      "category": "policy"
+    },
+    {
+      "hash": "ee7b15e63cde6c5dc7c45bc91effe0ab",
+      "name": "public.intelligence_user_interactions.users read own intelligence interactions",
+      "category": "policy"
+    },
+    {
+      "hash": "65604cffb245e5ac943bb7fc87036d88",
+      "name": "public.intelligence_user_interactions.users update own intelligence interactions",
+      "category": "policy"
+    },
+    {
+      "hash": "a7f5989f088e33d221737c209e465263",
+      "name": "public.intelligence_weekly_briefs.active people read published weekly briefs",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.intelligence_weekly_briefs.intelligence admins delete weekly briefs",
+      "category": "policy"
+    },
+    {
+      "hash": "a09d3b56db675498d6a4550bc5c32c40",
+      "name": "public.intelligence_weekly_briefs.intelligence managers insert weekly briefs",
+      "category": "policy"
+    },
+    {
+      "hash": "918ba8c1477c503ecc4ceb88e50abc37",
+      "name": "public.intelligence_weekly_briefs.intelligence managers update weekly briefs",
+      "category": "policy"
+    },
+    {
+      "hash": "ae83bb78420c3021f1b249b1ca5a77e2",
+      "name": "public.question_bank.question_bank_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_activity.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "adac6b1cd9462fa2edf99c33f647da0a",
+      "name": "public.recruitment_applications.Applicants submit without login",
+      "category": "policy"
+    },
+    {
+      "hash": "76c1887541644851d093ca71b44c0458",
+      "name": "public.recruitment_applications.Recruitment admins read applications",
+      "category": "policy"
+    },
+    {
+      "hash": "bfad024915d92bd19f4b60c3414a2369",
+      "name": "public.recruitment_applications.Recruitment admins update applications",
+      "category": "policy"
+    },
+    {
+      "hash": "99c32a065285f87be3eade750446c73b",
+      "name": "public.recruitment_applications.hr01_read_apps",
+      "category": "policy"
+    },
+    {
+      "hash": "ad1131c4020038ac0fe7291bf14f6a73",
+      "name": "public.recruitment_candidate_private.hr01_private_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_candidates.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_criteria_versions.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "5634df2ee6570014350f4945b741d955",
+      "name": "public.recruitment_export_logs.Recruitment admins create export logs",
+      "category": "policy"
+    },
+    {
+      "hash": "76c1887541644851d093ca71b44c0458",
+      "name": "public.recruitment_export_logs.Recruitment admins read export logs",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_interview_results.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_interview_rubrics.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "268a242464786a49e0ddc8691abaf093",
+      "name": "public.recruitment_jobs.Anonymous reads published recruitment jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "7efc668b17c65a91031b66a07e26792b",
+      "name": "public.recruitment_jobs.Recruitment admins delete jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "0e869c549fdbf8210d78623e7c87d30b",
+      "name": "public.recruitment_jobs.Recruitment admins insert jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "76c1887541644851d093ca71b44c0458",
+      "name": "public.recruitment_jobs.Recruitment admins read all jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "bfad024915d92bd19f4b60c3414a2369",
+      "name": "public.recruitment_jobs.Recruitment admins update jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "a177d889c209d69921dbcb55f6db37b6",
+      "name": "public.recruitment_jobs.hr01_authenticated_published_jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "93e9576440e82c0e1f4b3e30b34366e9",
+      "name": "public.recruitment_jobs.hr01_public_real_jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "b35537daf68068026307eda0872c31a1",
+      "name": "public.recruitment_jobs.hr01_read_jobs",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_message_templates.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_messages.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "89f0616d6729d1102ea1232481300de8",
+      "name": "public.recruitment_requests.hr01_request_owner",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_requests.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_screenings.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_skill_links.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "f4d48cd3975f104edfaa1eac2750adea",
+      "name": "public.recruitment_talent_leads.hr01_staff_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_announcements.rhs_announcements_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "9f57bbfa0c18a0625c1bf8cee7b4edcb",
+      "name": "public.rhs_announcements.rhs_announcements_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_app_users.rhs_app_users_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "8d86f7bd5280a478722f7639d0ad827f",
+      "name": "public.rhs_app_users.rhs_app_users_self",
+      "category": "policy"
+    },
+    {
+      "hash": "a6d5b5ad877e57deca32173f20ea67a1",
+      "name": "public.rhs_audit_log.rhs_audit_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1f26e6417501096c6675d61844447ae7",
+      "name": "public.rhs_data_transfer_log.rhs_transfer_own",
+      "category": "policy"
+    },
+    {
+      "hash": "a6d5b5ad877e57deca32173f20ea67a1",
+      "name": "public.rhs_data_transfer_log.rhs_transfer_read",
+      "category": "policy"
+    },
+    {
+      "hash": "4b7438ef62234d7789c26ce20346b1d8",
+      "name": "public.rhs_decoration_classes.rhs_decoration_classes_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_decoration_classes.rhs_decoration_classes_write",
+      "category": "policy"
+    },
+    {
+      "hash": "4b7438ef62234d7789c26ce20346b1d8",
+      "name": "public.rhs_departments.rhs_departments_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_departments.rhs_departments_write",
+      "category": "policy"
+    },
+    {
+      "hash": "4b7438ef62234d7789c26ce20346b1d8",
+      "name": "public.rhs_eligibility_criteria.rhs_eligibility_criteria_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_eligibility_criteria.rhs_eligibility_criteria_write",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_menu_permissions.rhs_menu_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "34122ca7f322b921a58aad019323e7c3",
+      "name": "public.rhs_menu_permissions.rhs_menu_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_personnel.rhs_personnel_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "08c43af3750583c2dd9efe009457a3ec",
+      "name": "public.rhs_personnel.rhs_personnel_self",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_personnel_decorations.rhs_personnel_decorations_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "3f1c68d71287b6bd2a819cfe2feaa814",
+      "name": "public.rhs_personnel_decorations.rhs_personnel_decorations_self",
+      "category": "policy"
+    },
+    {
+      "hash": "4b7438ef62234d7789c26ce20346b1d8",
+      "name": "public.rhs_position_decoration_rules.rhs_position_decoration_rules_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_position_decoration_rules.rhs_position_decoration_rules_write",
+      "category": "policy"
+    },
+    {
+      "hash": "4b7438ef62234d7789c26ce20346b1d8",
+      "name": "public.rhs_positions.rhs_positions_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_positions.rhs_positions_write",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_review_results.rhs_results_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "5cd8af5df8aa8e73179959250d6b7370",
+      "name": "public.rhs_review_results.rhs_results_self",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_review_rounds.rhs_rounds_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "1b1043159dfde9bb370f89e280f92432",
+      "name": "public.rhs_review_rounds.rhs_rounds_read",
+      "category": "policy"
+    },
+    {
+      "hash": "1dfabb1bf2905109efac4e2dbb90c4c2",
+      "name": "public.rhs_service_histories.rhs_service_histories_admin",
+      "category": "policy"
+    },
+    {
+      "hash": "1e647dbc1232d50858622e8df0f7a042",
+      "name": "public.rhs_service_histories.rhs_service_histories_self",
+      "category": "policy"
+    },
+    {
+      "hash": "3ed31311e127a3ae6efd6cd293dc0a48",
+      "name": "public.spu_calendar_academic_periods.active users read academic periods",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.spu_calendar_academic_periods.calendar admins create academic periods",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.spu_calendar_academic_periods.calendar admins delete academic periods",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.spu_calendar_academic_periods.calendar admins update academic periods",
+      "category": "policy"
+    },
+    {
+      "hash": "e99599e3c72b6b6ff24ff2608ba845ed",
+      "name": "public.spu_calendar_audit_logs.calendar governance reads audit",
+      "category": "policy"
+    },
+    {
+      "hash": "13ed84672383617c5a6606b1c66ec5a3",
+      "name": "public.spu_calendar_events.active users read calendar events",
+      "category": "policy"
+    },
+    {
+      "hash": "b7557bae6172d2e5a1e014bb3a991098",
+      "name": "public.spu_calendar_events.source editors create calendar events",
+      "category": "policy"
+    },
+    {
+      "hash": "7f36fdb3f345ac8e3ed4d05466c6afb8",
+      "name": "public.spu_calendar_events.source editors update calendar events",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.spu_calendar_events.source managers delete calendar events",
+      "category": "policy"
+    },
+    {
+      "hash": "78c08824bd1e7f0cc201ebffd015e515",
+      "name": "public.spu_calendar_import_batches.authorized users read calendar imports",
+      "category": "policy"
+    },
+    {
+      "hash": "a29ba2b5d405e12da65df4524b0b2cdc",
+      "name": "public.spu_calendar_import_batches.source editors create calendar imports",
+      "category": "policy"
+    },
+    {
+      "hash": "b8e50fdb120eba47b0dc882e8cd86928",
+      "name": "public.spu_calendar_import_batches.source editors update calendar imports",
+      "category": "policy"
+    },
+    {
+      "hash": "6215b23ce7720459aa0294e01083ebad",
+      "name": "public.spu_calendar_source_members.calendar admins create memberships",
+      "category": "policy"
+    },
+    {
+      "hash": "769c3af0a9d7f81b77548e769503b031",
+      "name": "public.spu_calendar_source_members.calendar admins delete memberships",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.spu_calendar_source_members.calendar admins update memberships",
+      "category": "policy"
+    },
+    {
+      "hash": "7bc895036c2e8baeb290ea36c876ae7c",
+      "name": "public.spu_calendar_source_members.members read their calendar membership",
+      "category": "policy"
+    },
+    {
+      "hash": "8c1f8c79b71ce9a3bbe9dd611dd160fb",
+      "name": "public.spu_calendar_sources.active users read calendar sources",
+      "category": "policy"
+    },
+    {
+      "hash": "b8ed703790fb70e309bd4b4e7b9af3e8",
+      "name": "public.spu_calendar_sources.calendar admins create sources",
+      "category": "policy"
+    },
+    {
+      "hash": "50f7030db21755f26cc858eadadb14ab",
+      "name": "public.spu_calendar_sources.calendar admins update sources",
+      "category": "policy"
+    },
+    {
+      "hash": "e88849d601a4c8e95878f3c2fc780745",
+      "name": "public.spu_calendar_sync_runs.active users read calendar sync runs",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_change_events.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_exceptions.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_findings.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_gate_checks.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_release_evidence.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_releases.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_security_scan_results.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "84beacd10ffc779f5bf217baf938134c",
+      "name": "public.spu_system_registry.enterprise security readers",
+      "category": "policy"
+    },
+    {
+      "hash": "fc77d62cefd3544ad1129e6dd5e44614",
+      "name": "storage.objects.Recruitment admins delete resumes",
+      "category": "policy"
+    },
+    {
+      "hash": "b65c6f9344c13fe432815dfbd2fe5663",
+      "name": "storage.objects.Recruitment admins read resumes",
+      "category": "policy"
+    },
+    {
+      "hash": "36931aa62cff1fdc1c7ead77dd17f77e",
+      "name": "storage.objects.active users download calendar source files",
+      "category": "policy"
+    },
+    {
+      "hash": "e0880aafcedb275775a826dcf3624b77",
+      "name": "storage.objects.authorized staff read scoped foreign faculty files",
+      "category": "policy"
+    },
+    {
+      "hash": "afde8867cc372cf2baf0139c744aa8c8",
+      "name": "storage.objects.hr operators delete own foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "c4db1b81615efdfd361287878cc879a3",
+      "name": "storage.objects.hr operators update own foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "f9bb4b4338369b9eae9422b72714e7ff",
+      "name": "storage.objects.hr operators upload foreign faculty documents",
+      "category": "policy"
+    },
+    {
+      "hash": "f42a4d488d5aac9b8b7de04795f0502c",
+      "name": "storage.objects.hr01_document_read",
+      "category": "policy"
+    },
+    {
+      "hash": "6df835d50dd4315bc253267ebc45b736",
+      "name": "storage.objects.hr01_request_document_upload",
+      "category": "policy"
+    },
+    {
+      "hash": "1a12195f0943b6c1b804578ac9479d72",
+      "name": "storage.objects.hr01_resume_staff",
+      "category": "policy"
+    },
+    {
+      "hash": "c59690a36eae570370bfee7648fe4367",
+      "name": "storage.objects.hr03 evidence objects delete",
+      "category": "policy"
+    },
+    {
+      "hash": "f72770f766e72d4c473364bf4c302dee",
+      "name": "storage.objects.hr03 evidence objects insert",
+      "category": "policy"
+    },
+    {
+      "hash": "609eb5c4b2c4203f00ccf7a98c51cb03",
+      "name": "storage.objects.hr03 evidence objects read",
+      "category": "policy"
+    },
+    {
+      "hash": "0cf2b8dd4cdef72531a53adcf92ef2dd",
+      "name": "storage.objects.hr03 evidence objects update",
+      "category": "policy"
+    },
+    {
+      "hash": "81b66e8f7497e3fa7521f803e271ad35",
+      "name": "storage.objects.rhs_storage_admin_all",
+      "category": "policy"
+    },
+    {
+      "hash": "318cbde7e85bc874d560cf365a5d450d",
+      "name": "storage.objects.rhs_storage_read_files",
+      "category": "policy"
+    },
+    {
+      "hash": "df1466303da60a1d699f433d5f14e821",
+      "name": "storage.objects.source editors delete calendar source files",
+      "category": "policy"
+    },
+    {
+      "hash": "7791db47f5f8eedef2de96af8e928910",
+      "name": "storage.objects.source editors replace calendar source files",
+      "category": "policy"
+    },
+    {
+      "hash": "48f051aaacaf16f2c294ff130664ea60",
+      "name": "storage.objects.source editors upload calendar source files",
+      "category": "policy"
+    },
+    {
+      "hash": "d4d6059548a2553f5d18f3ce11579d29",
+      "name": "auth",
+      "category": "schema"
+    },
+    {
+      "hash": "2014769c704e434c35e94ddd014abb09",
+      "name": "private",
+      "category": "schema"
+    },
+    {
+      "hash": "a42db1c6a52d80fd333959932c0bbd1f",
+      "name": "public",
+      "category": "schema"
+    },
+    {
+      "hash": "b8f3f82d4a069de00a074dbb786d17e5",
+      "name": "storage",
+      "category": "schema"
+    },
+    {
+      "hash": "6e60bebfbc1a0928d3c12b99c089d0b7",
+      "name": "auth.audit_log_entries",
+      "category": "table"
+    },
+    {
+      "hash": "4ad9d68563dcb8ed7a891ce162667a04",
+      "name": "auth.custom_oauth_providers",
+      "category": "table"
+    },
+    {
+      "hash": "580040584eedc7e594a86603472753c9",
+      "name": "auth.flow_state",
+      "category": "table"
+    },
+    {
+      "hash": "1314a811f42d2b609a5925fa968b4f67",
+      "name": "auth.identities",
+      "category": "table"
+    },
+    {
+      "hash": "d3456a9883766f6796297c550f5964a4",
+      "name": "auth.instances",
+      "category": "table"
+    },
+    {
+      "hash": "9ced3439bec7a6a7b365433ed06df7cb",
+      "name": "auth.mfa_amr_claims",
+      "category": "table"
+    },
+    {
+      "hash": "b2cc38ba690f491bdbcfe9372d05bfc8",
+      "name": "auth.mfa_challenges",
+      "category": "table"
+    },
+    {
+      "hash": "9efafec079c65b74c59c639b3fc258c7",
+      "name": "auth.mfa_factors",
+      "category": "table"
+    },
+    {
+      "hash": "ace084f59657423ce56b9b49b51d095f",
+      "name": "auth.mfa_recovery_code_sets",
+      "category": "table"
+    },
+    {
+      "hash": "98e93b1a2e899221f90433a1eef0f855",
+      "name": "auth.mfa_recovery_codes",
+      "category": "table"
+    },
+    {
+      "hash": "1612e7c10bbeb4544f00656998bdcb13",
+      "name": "auth.oauth_authorizations",
+      "category": "table"
+    },
+    {
+      "hash": "f8c0098a93526f835b3d820235920b45",
+      "name": "auth.oauth_client_states",
+      "category": "table"
+    },
+    {
+      "hash": "e4cf1a74cc6954e36141dfd80194aa6f",
+      "name": "auth.oauth_clients",
+      "category": "table"
+    },
+    {
+      "hash": "311c775a721bbfbdd74b283cb1201b95",
+      "name": "auth.oauth_consents",
+      "category": "table"
+    },
+    {
+      "hash": "5bd76553f74f8aafddbcc45adcb5c690",
+      "name": "auth.one_time_tokens",
+      "category": "table"
+    },
+    {
+      "hash": "1cda613576d329773ad3faadfceba9b3",
+      "name": "auth.refresh_tokens",
+      "category": "table"
+    },
+    {
+      "hash": "4ea05dca907bbfe3d67a20876068abc7",
+      "name": "auth.saml_providers",
+      "category": "table"
+    },
+    {
+      "hash": "8eb981e28c4e70306031a0fe139cb31e",
+      "name": "auth.saml_relay_states",
+      "category": "table"
+    },
+    {
+      "hash": "17310463e2c60de3eff7384030d2eedf",
+      "name": "auth.schema_migrations",
+      "category": "table"
+    },
+    {
+      "hash": "08955a6cbcb64e6c1c9f8351d48df70d",
+      "name": "auth.scim_tokens",
+      "category": "table"
+    },
+    {
+      "hash": "3aa17335a0a57d767ca3ba12261948b2",
+      "name": "auth.scim_users",
+      "category": "table"
+    },
+    {
+      "hash": "99845465e7150529285039ba152a1ffe",
+      "name": "auth.sessions",
+      "category": "table"
+    },
+    {
+      "hash": "57e222ec033360a3cd8c8ec10dee5b1b",
+      "name": "auth.sso_domains",
+      "category": "table"
+    },
+    {
+      "hash": "b64f7d5b22e43ff46ce658fc2b08c920",
+      "name": "auth.sso_providers",
+      "category": "table"
+    },
+    {
+      "hash": "b5aa7205092ae69e0887d6cd499afd47",
+      "name": "auth.users",
+      "category": "table"
+    },
+    {
+      "hash": "fbaf634b2f4fdac6eeb8b19dbe136e7e",
+      "name": "auth.webauthn_challenges",
+      "category": "table"
+    },
+    {
+      "hash": "61a22bcf015682accbe27f797bbab96b",
+      "name": "auth.webauthn_credentials",
+      "category": "table"
+    },
+    {
+      "hash": "80e3cc8bcc8db4e4fc5be7f57dbb4e16",
+      "name": "private.hr01_intake_keys",
+      "category": "table"
+    },
+    {
+      "hash": "e2336d5d53629a543bca4a49f1415b9f",
+      "name": "private.hr01_profile_tokens",
+      "category": "table"
+    },
+    {
+      "hash": "d80f6cf213dd00e74c604d453a6bb5a0",
+      "name": "private.hr01_rate_limits",
+      "category": "table"
+    },
+    {
+      "hash": "29d356886f5e9ee304bcb6b5303c4078",
+      "name": "private.hr01_settings",
+      "category": "table"
+    },
+    {
+      "hash": "eddcd21b170a269944cc8ca11ce876f6",
+      "name": "private.hr_admins",
+      "category": "table"
+    },
+    {
+      "hash": "30ef0efe413ed97a7c0f39db185298c7",
+      "name": "private.recruitment_admins",
+      "category": "table"
+    },
+    {
+      "hash": "439a4caacb30a856dfa501a2318b9e72",
+      "name": "public.dl_applicants",
+      "category": "table"
+    },
+    {
+      "hash": "b064b0fcdf0a8af47f839bf74b9441eb",
+      "name": "public.dl_attitude_bank",
+      "category": "table"
+    },
+    {
+      "hash": "53850a73b95b58173452b3b508d74fc6",
+      "name": "public.dl_config",
+      "category": "table"
+    },
+    {
+      "hash": "fb1c43b9e689a08899b392253f3f2f65",
+      "name": "public.dl_config_audit_logs",
+      "category": "table"
+    },
+    {
+      "hash": "288805595a90c403d14b0f39e28b5a1c",
+      "name": "public.dl_role_permissions",
+      "category": "table"
+    },
+    {
+      "hash": "54561e61874626c2c9ebd4a33f5a587a",
+      "name": "public.dl_security_events",
+      "category": "table"
+    },
+    {
+      "hash": "8801c8e81beffda390c63724af47a58f",
+      "name": "public.dl_sessions",
+      "category": "table"
+    },
+    {
+      "hash": "d11d7f43670521a808406ec4a83f4911",
+      "name": "public.dl_user_roles",
+      "category": "table"
+    },
+    {
+      "hash": "862d94f67d9eabc352fe982a587114cb",
+      "name": "public.foreign_faculty_activity_logs",
+      "category": "table"
+    },
+    {
+      "hash": "bb69bd2d8cd9752771d6d6aa5003fd5b",
+      "name": "public.foreign_faculty_cases",
+      "category": "table"
+    },
+    {
+      "hash": "e31ccf7adfe4181b1a8e8ce697e8b651",
+      "name": "public.foreign_faculty_deadlines",
+      "category": "table"
+    },
+    {
+      "hash": "38934b9ac36810c5421e0477ddafe8ac",
+      "name": "public.foreign_faculty_documents",
+      "category": "table"
+    },
+    {
+      "hash": "f6af634a985279bc9f44567c2078516d",
+      "name": "public.foreign_faculty_profiles",
+      "category": "table"
+    },
+    {
+      "hash": "dc315705cfa7d24e14607dadb6efc6fd",
+      "name": "public.hr03_assessment_worklist",
+      "category": "table"
+    },
+    {
+      "hash": "e0e2bd6b19964a3069f17958ec2a2f41",
+      "name": "public.hr03_audit_log",
+      "category": "table"
+    },
+    {
+      "hash": "40af6867d2d8817dd8b2877c25970405",
+      "name": "public.hr03_course_offering_catalog",
+      "category": "table"
+    },
+    {
+      "hash": "27b0b0f81597ecee938367043e140aba",
+      "name": "public.hr03_development_overview",
+      "category": "table"
+    },
+    {
+      "hash": "9883d1d772e1d2d046a3de794bbb5cd5",
+      "name": "public.hr03_hr05_verified_skill_supply",
+      "category": "table"
+    },
+    {
+      "hash": "1246d7f9c064e31365eb89c9d55e9040",
+      "name": "public.hr03_hr07_development_evidence",
+      "category": "table"
+    },
+    {
+      "hash": "d450516565cc3b84b26e508200c35cb3",
+      "name": "public.hr03_idp_worklist",
+      "category": "table"
+    },
+    {
+      "hash": "dcc37b5322bccb3358088af273c7c75f",
+      "name": "public.hr03_learning_operations",
+      "category": "table"
+    },
+    {
+      "hash": "b7a68d51d0cbbdf9e7a0a3644e454662",
+      "name": "public.hr03_need_worklist",
+      "category": "table"
+    },
+    {
+      "hash": "f7e0702309f375bfde881b45dc6ecb96",
+      "name": "public.hr03_outcome_worklist",
+      "category": "table"
+    },
+    {
+      "hash": "ca57dcf197b6166a246e4ca85870c86c",
+      "name": "public.hr03_skill_matrix",
+      "category": "table"
+    },
+    {
+      "hash": "d4e6af3c507402bb865222fe8fe6de5b",
+      "name": "public.hr_access_blocklist",
+      "category": "table"
+    },
+    {
+      "hash": "39d2ecdf42fd72b7dc6de424b69b2db1",
+      "name": "public.hr_admin_audit_logs",
+      "category": "table"
+    },
+    {
+      "hash": "769006255db90a952b6245e33ee9b957",
+      "name": "public.hr_agent_api_keys",
+      "category": "table"
+    },
+    {
+      "hash": "7af7cc4eddec751a9da2e6027f7c8319",
+      "name": "public.hr_agent_registry",
+      "category": "table"
+    },
+    {
+      "hash": "789aee2af2bb92351ba8e1d1f0d1f9a2",
+      "name": "public.hr_agent_reports",
+      "category": "table"
+    },
+    {
+      "hash": "5703c463844d5879b95c52bec3bda8d6",
+      "name": "public.hr_agent_run_steps",
+      "category": "table"
+    },
+    {
+      "hash": "c222979aab542414898db520f16799bc",
+      "name": "public.hr_agent_runs",
+      "category": "table"
+    },
+    {
+      "hash": "9bb6cb961f8b5b6df711bae13b0c93b2",
+      "name": "public.hr_agent_runtime_controls",
+      "category": "table"
+    },
+    {
+      "hash": "1c4f78806457cff1d9350e1a21b14795",
+      "name": "public.hr_agent_supabase_usage",
+      "category": "table"
+    },
+    {
+      "hash": "6328beabacf9b4303ac29e27f1d6323c",
+      "name": "public.hr_agent_system_logs",
+      "category": "table"
+    },
+    {
+      "hash": "63cf98e838cb64ae54547d7c30314e33",
+      "name": "public.hr_application_stages",
+      "category": "table"
+    },
+    {
+      "hash": "ee0b84c7aaee04ccf3b0cd6a1dd775fd",
+      "name": "public.hr_applications",
+      "category": "table"
+    },
+    {
+      "hash": "c4b837eaf75478c155a68c0f5723a6eb",
+      "name": "public.hr_approval_cases",
+      "category": "table"
+    },
+    {
+      "hash": "43c32ef5681726320189ed5f5f576ce6",
+      "name": "public.hr_candidate_assessments",
+      "category": "table"
+    },
+    {
+      "hash": "5a6dd4d91e862d684110aa39c0513e65",
+      "name": "public.hr_candidates",
+      "category": "table"
+    },
+    {
+      "hash": "6fe617c2dddfc1a09872e8b39adf6ae5",
+      "name": "public.hr_competencies",
+      "category": "table"
+    },
+    {
+      "hash": "6a8c79dd12c7ae7dda6aa066618dabbc",
+      "name": "public.hr_dashboard_age_band_summary",
+      "category": "table"
+    },
+    {
+      "hash": "474e7c69961c739d116fc6636ab1a260",
+      "name": "public.hr_dashboard_data_quality_summary",
+      "category": "table"
+    },
+    {
+      "hash": "bf85b7e3fe98adfd4ffa9295b2c60f75",
+      "name": "public.hr_dashboard_layouts",
+      "category": "table"
+    },
+    {
+      "hash": "1bbd97af4668c61c6ebe0432b5c3f75e",
+      "name": "public.hr_dashboard_learning_summary",
+      "category": "table"
+    },
+    {
+      "hash": "1ae4a727838015346b8dd89162a79853",
+      "name": "public.hr_dashboard_monthly_trend",
+      "category": "table"
+    },
+    {
+      "hash": "92a7baeb3de057af5fe1bb259ff86284",
+      "name": "public.hr_dashboard_org_summary",
+      "category": "table"
+    },
+    {
+      "hash": "3afce64f5974c92181ffd5f1d7c58a6f",
+      "name": "public.hr_dashboard_overview",
+      "category": "table"
+    },
+    {
+      "hash": "f4bca3ebfde375d13038233be73dc312",
+      "name": "public.hr_dashboard_performance_summary",
+      "category": "table"
+    },
+    {
+      "hash": "288d98a8f14e7408f37ea8739e977adf",
+      "name": "public.hr_dashboard_person_type_summary",
+      "category": "table"
+    },
+    {
+      "hash": "8cc43df04697530ccf105f707447e5e3",
+      "name": "public.hr_dashboard_recruitment_funnel",
+      "category": "table"
+    },
+    {
+      "hash": "0a25b6bbdb97e797b6e21c284f825f62",
+      "name": "public.hr_dashboard_tenure_band_summary",
+      "category": "table"
+    },
+    {
+      "hash": "a22be7ee0304c6986d18dfef1fea41a9",
+      "name": "public.hr_data_dictionary",
+      "category": "table"
+    },
+    {
+      "hash": "121e75e92b6f145cfce6111c72839a58",
+      "name": "public.hr_data_import_runs",
+      "category": "table"
+    },
+    {
+      "hash": "9281f80d6cf1210166960d845b262449",
+      "name": "public.hr_data_quality_issues",
+      "category": "table"
+    },
+    {
+      "hash": "85855050c675ea0a2995a45c2d7844e4",
+      "name": "public.hr_demo_scenarios",
+      "category": "table"
+    },
+    {
+      "hash": "8b69cf5cabd8cb19fa326f3374ea0a91",
+      "name": "public.hr_development_needs",
+      "category": "table"
+    },
+    {
+      "hash": "d942a456b520bf2f53ae64edc57c8245",
+      "name": "public.hr_development_plans",
+      "category": "table"
+    },
+    {
+      "hash": "ed40fc60510a1fea24f3fdb19a445798",
+      "name": "public.hr_employee_skills",
+      "category": "table"
+    },
+    {
+      "hash": "719f57663e60f2d67e4f320b448b031a",
+      "name": "public.hr_employments",
+      "category": "table"
+    },
+    {
+      "hash": "41dfa344993381ea1e1bb5745d78cfad",
+      "name": "public.hr_exit_events",
+      "category": "table"
+    },
+    {
+      "hash": "d2d2cb222ada7978604c7eda323034ef",
+      "name": "public.hr_governor_monthly_health",
+      "category": "table"
+    },
+    {
+      "hash": "5c18cce8a8d1ff3138d4f966c582a26b",
+      "name": "public.hr_ict_integration_contract",
+      "category": "table"
+    },
+    {
+      "hash": "be91399719e51346997ac7bc47155885",
+      "name": "public.hr_interviews",
+      "category": "table"
+    },
+    {
+      "hash": "69fa0f280ba88254924ed91dbd3c5d5f",
+      "name": "public.hr_job_offers",
+      "category": "table"
+    },
+    {
+      "hash": "5a70734991d91d622549d90f87ca1d3f",
+      "name": "public.hr_kpi_definitions",
+      "category": "table"
+    },
+    {
+      "hash": "0998ff4cfea0bfe299965754f3a1af2f",
+      "name": "public.hr_learning_activities",
+      "category": "table"
+    },
+    {
+      "hash": "9b56747ecd5b28a765720513ee42339b",
+      "name": "public.hr_learning_courses",
+      "category": "table"
+    },
+    {
+      "hash": "1a7ba2d5f3023ed0bb90a5ed5cec651b",
+      "name": "public.hr_learning_enrollments",
+      "category": "table"
+    },
+    {
+      "hash": "5cf1c8c485ce6642e52dabd6d8c3d28c",
+      "name": "public.hr_learning_evidence",
+      "category": "table"
+    },
+    {
+      "hash": "01b74be44d72ce991c825b2a633ecda8",
+      "name": "public.hr_learning_offerings",
+      "category": "table"
+    },
+    {
+      "hash": "ae2a2a2d65bea2a37fe0c8fff52a53a7",
+      "name": "public.hr_learning_outcomes",
+      "category": "table"
+    },
+    {
+      "hash": "60e52015943e41a1ee6de386418ef1cd",
+      "name": "public.hr_monthly_requirements",
+      "category": "table"
+    },
+    {
+      "hash": "edfe1cb129cc9fab4effd5bb5946d149",
+      "name": "public.hr_org_roots",
+      "category": "table"
+    },
+    {
+      "hash": "421ecd1356ee71b998cdbcbcf42ceb8d",
+      "name": "public.hr_org_units",
+      "category": "table"
+    },
+    {
+      "hash": "59193f31245e391a94656cde64b2b439",
+      "name": "public.hr_people",
+      "category": "table"
+    },
+    {
+      "hash": "f28ad36029550b9a5bdf4b8a3fd48c89",
+      "name": "public.hr_people_directory",
+      "category": "table"
+    },
+    {
+      "hash": "c9fa088cd1d33ecbc247010f6e87e286",
+      "name": "public.hr_performance_ai_insights",
+      "category": "table"
+    },
+    {
+      "hash": "f72b243690afb7b5031d88d2f3459815",
+      "name": "public.hr_performance_competencies",
+      "category": "table"
+    },
+    {
+      "hash": "3e6b41431aa3f5d61225926a045b5477",
+      "name": "public.hr_performance_cycles",
+      "category": "table"
+    },
+    {
+      "hash": "d25bfa952c5dcb03b976e1075ea996c8",
+      "name": "public.hr_performance_goals",
+      "category": "table"
+    },
+    {
+      "hash": "6e7147ed6abb066dbc429f1bb9db0fa3",
+      "name": "public.hr_performance_reviews",
+      "category": "table"
+    },
+    {
+      "hash": "4d5e3935945a6a546692a59d81355c66",
+      "name": "public.hr_person_types",
+      "category": "table"
+    },
+    {
+      "hash": "490e80274df2d5ed38b5cf3844a39ab2",
+      "name": "public.hr_positions",
+      "category": "table"
+    },
+    {
+      "hash": "843f2e77606e37c0c80d142df4f34287",
+      "name": "public.hr_project_baselines",
+      "category": "table"
+    },
+    {
+      "hash": "94644901926b48c66e96b12dbc81a5af",
+      "name": "public.hr_project_change_requests",
+      "category": "table"
+    },
+    {
+      "hash": "20d8ebfcc6dce6d2ea1128c95635d3a8",
+      "name": "public.hr_project_decisions",
+      "category": "table"
+    },
+    {
+      "hash": "ff02e9115b49e4f86644484a8932730f",
+      "name": "public.hr_project_months",
+      "category": "table"
+    },
+    {
+      "hash": "8de1b80c1b3ff3a22b134f41374ecd61",
+      "name": "public.hr_project_work_items",
+      "category": "table"
+    },
+    {
+      "hash": "57013874cb219bfffe39a12fd2de263b",
+      "name": "public.hr_reporting_lines",
+      "category": "table"
+    },
+    {
+      "hash": "05780e4dd60cc26ee68a5ae2373bc162",
+      "name": "public.hr_requirement_gate_checks",
+      "category": "table"
+    },
+    {
+      "hash": "b09e83978a996e87d48e7bc05bfcbec6",
+      "name": "public.hr_requirement_sessions",
+      "category": "table"
+    },
+    {
+      "hash": "1074e4690108375364033cac63d0a680",
+      "name": "public.hr_requisitions",
+      "category": "table"
+    },
+    {
+      "hash": "c28008e63566dada1b404fea08799f53",
+      "name": "public.hr_role_menu_permissions",
+      "category": "table"
+    },
+    {
+      "hash": "498a0fcbbef23dcd344747b3250a6684",
+      "name": "public.hr_security_gate_status",
+      "category": "table"
+    },
+    {
+      "hash": "518794bc0cfbf6893728cdaafa331ef2",
+      "name": "public.hr_security_scan_results",
+      "category": "table"
+    },
+    {
+      "hash": "71a298d9c35409107c021f64b6257089",
+      "name": "public.hr_skill_assessments",
+      "category": "table"
+    },
+    {
+      "hash": "f366fba4f647313f4dbe5a0419cb2e21",
+      "name": "public.hr_source_reconciliation",
+      "category": "table"
+    },
+    {
+      "hash": "a2abd4ad51dbe9a0e6c17e11b3ad7429",
+      "name": "public.hr_ssot_ownership",
+      "category": "table"
+    },
+    {
+      "hash": "99d3322d80e68a33df95668944b342bb",
+      "name": "public.hr_systems",
+      "category": "table"
+    },
+    {
+      "hash": "30c0d29c3e5e33a1116738c82d994cad",
+      "name": "public.hr_table_governance_registry",
+      "category": "table"
+    },
+    {
+      "hash": "a90ab632765d349b610f9d8b02d81dfb",
+      "name": "public.hr_titles",
+      "category": "table"
+    },
+    {
+      "hash": "7c95507a673f28ac9910c6d0446c486d",
+      "name": "public.hr_usage_logs",
+      "category": "table"
+    },
+    {
+      "hash": "94b29348bf5d7df74850a542485192bc",
+      "name": "public.hr_usage_menu_catalog",
+      "category": "table"
+    },
+    {
+      "hash": "9db1385c82b9c203fe0d274da3de99d5",
+      "name": "public.hr_user_profiles",
+      "category": "table"
+    },
+    {
+      "hash": "155713a25db6a4a659c07bff2c964be2",
+      "name": "public.hr_user_roles",
+      "category": "table"
+    },
+    {
+      "hash": "5e29fdc5f44fe4836504bfae3b6ed22f",
+      "name": "public.hr_workforce_monthly_snapshots",
+      "category": "table"
+    },
+    {
+      "hash": "584509b628ed906890eb131239f7f78a",
+      "name": "public.hr_workforce_position_plans",
+      "category": "table"
+    },
+    {
+      "hash": "d0954dd58fa54ec2bc36a1ed67810cdc",
+      "name": "public.hr_workforce_unit_plans",
+      "category": "table"
+    },
+    {
+      "hash": "f6b9ccfcbe8b053baf242afa9cfc6a00",
+      "name": "public.intelligence_actions",
+      "category": "table"
+    },
+    {
+      "hash": "6cd77dc4048d5114203dc095ea9c530e",
+      "name": "public.intelligence_ai_usage",
+      "category": "table"
+    },
+    {
+      "hash": "9e20030bd02466fc71939c0f9df47e7d",
+      "name": "public.intelligence_collection_runs",
+      "category": "table"
+    },
+    {
+      "hash": "99e7d054cff634c4433593a3596f68f6",
+      "name": "public.intelligence_items",
+      "category": "table"
+    },
+    {
+      "hash": "b23795c7d693a29e5acd0947905b9506",
+      "name": "public.intelligence_knowledge",
+      "category": "table"
+    },
+    {
+      "hash": "c4e274a223f22e8012af563ac533c362",
+      "name": "public.intelligence_raw_items",
+      "category": "table"
+    },
+    {
+      "hash": "803ca148cca1376e3a6f46d74ef0d5b2",
+      "name": "public.intelligence_settings",
+      "category": "table"
+    },
+    {
+      "hash": "142090359a763c13b1a89a28d561d2d3",
+      "name": "public.intelligence_skill_signals",
+      "category": "table"
+    },
+    {
+      "hash": "e8d8be6a8a948c85b18887a72ef529c3",
+      "name": "public.intelligence_sources",
+      "category": "table"
+    },
+    {
+      "hash": "4ca0faf85f0fb08455ca3c9d065266b6",
+      "name": "public.intelligence_story_clusters",
+      "category": "table"
+    },
+    {
+      "hash": "e4adb39a3f94958485d9c644efef195d",
+      "name": "public.intelligence_user_interactions",
+      "category": "table"
+    },
+    {
+      "hash": "d78720ebbef1ca8a30520fc9ca26ffd0",
+      "name": "public.intelligence_weekly_briefs",
+      "category": "table"
+    },
+    {
+      "hash": "b61ad8ea2b03f3c539a700ebd336667b",
+      "name": "public.question_bank",
+      "category": "table"
+    },
+    {
+      "hash": "ec4a790230ffa5e38503fea32fb84e0a",
+      "name": "public.recruitment_activity",
+      "category": "table"
+    },
+    {
+      "hash": "66596e6d59658ceb58d1da250d39a5c2",
+      "name": "public.recruitment_applications",
+      "category": "table"
+    },
+    {
+      "hash": "9efd0be67a5768efc1aa59cff010e9e1",
+      "name": "public.recruitment_candidate_private",
+      "category": "table"
+    },
+    {
+      "hash": "4bfb7089662a4544580b8a24e3c6893c",
+      "name": "public.recruitment_candidates",
+      "category": "table"
+    },
+    {
+      "hash": "391277600bbed5f1ff818d19c7c2bc2b",
+      "name": "public.recruitment_criteria_versions",
+      "category": "table"
+    },
+    {
+      "hash": "7900fb3ec087e8c950d072561aa7e3fb",
+      "name": "public.recruitment_export_logs",
+      "category": "table"
+    },
+    {
+      "hash": "776af1ff5f09862fda1e40804653adfa",
+      "name": "public.recruitment_interview_results",
+      "category": "table"
+    },
+    {
+      "hash": "44866bd5675b2ff5315595204db04946",
+      "name": "public.recruitment_interview_rubrics",
+      "category": "table"
+    },
+    {
+      "hash": "d4586dee8d0c1269db5e594c2c4f67c0",
+      "name": "public.recruitment_jobs",
+      "category": "table"
+    },
+    {
+      "hash": "1ce79ea7dd862114b0bc575721dcf991",
+      "name": "public.recruitment_message_templates",
+      "category": "table"
+    },
+    {
+      "hash": "4063aec93bc8f3b96b1e65738dbb7c78",
+      "name": "public.recruitment_messages",
+      "category": "table"
+    },
+    {
+      "hash": "fe2baab24b2fe5341af87111f803f723",
+      "name": "public.recruitment_requests",
+      "category": "table"
+    },
+    {
+      "hash": "bba412a7696556a31d6bdc54a19e81bf",
+      "name": "public.recruitment_screenings",
+      "category": "table"
+    },
+    {
+      "hash": "8066357560fc3ac6cfb01a2de76e90bb",
+      "name": "public.recruitment_skill_links",
+      "category": "table"
+    },
+    {
+      "hash": "8354af79fa86fd167b927ba2cdc20507",
+      "name": "public.recruitment_talent_leads",
+      "category": "table"
+    },
+    {
+      "hash": "d1b7a08213e6f26a7873eb77c2b0292a",
+      "name": "public.rhs_announcements",
+      "category": "table"
+    },
+    {
+      "hash": "b24ef1498b80bf81dbe8cbbea18b012f",
+      "name": "public.rhs_app_users",
+      "category": "table"
+    },
+    {
+      "hash": "1dabb36261ca7aade25139fbe610e0ec",
+      "name": "public.rhs_audit_log",
+      "category": "table"
+    },
+    {
+      "hash": "45e248ebba61e2f0cc8ace667bc6178a",
+      "name": "public.rhs_data_transfer_log",
+      "category": "table"
+    },
+    {
+      "hash": "8b2306a44fc9329e4791f1a450b37d5d",
+      "name": "public.rhs_decoration_classes",
+      "category": "table"
+    },
+    {
+      "hash": "c9c333c3945712f2426c9546ece144d8",
+      "name": "public.rhs_departments",
+      "category": "table"
+    },
+    {
+      "hash": "404ed4178d54f9b798d560b303c4520f",
+      "name": "public.rhs_eligibility_criteria",
+      "category": "table"
+    },
+    {
+      "hash": "9c9d5091f675999845ae2dec87e8957c",
+      "name": "public.rhs_menu_permissions",
+      "category": "table"
+    },
+    {
+      "hash": "eb678a4f69bf940b3be42b8b0284cb34",
+      "name": "public.rhs_personnel",
+      "category": "table"
+    },
+    {
+      "hash": "50e92a4ce335dd6c9c4b6f1ac47a83c8",
+      "name": "public.rhs_personnel_decorations",
+      "category": "table"
+    },
+    {
+      "hash": "fad5764765c3f0aebd49728dd2b82ce8",
+      "name": "public.rhs_position_decoration_rules",
+      "category": "table"
+    },
+    {
+      "hash": "4493fcd1c9e91dca98023c4f8c1b9683",
+      "name": "public.rhs_positions",
+      "category": "table"
+    },
+    {
+      "hash": "f0a3fcff416a327d2c2965c6aa9af2e5",
+      "name": "public.rhs_review_results",
+      "category": "table"
+    },
+    {
+      "hash": "16424761a393b49401a2b964f3f656c3",
+      "name": "public.rhs_review_rounds",
+      "category": "table"
+    },
+    {
+      "hash": "92ce0fcf3b6147e53d99a2b987f515f4",
+      "name": "public.rhs_service_histories",
+      "category": "table"
+    },
+    {
+      "hash": "59ef8d195dd164e22c32acbda69d40f9",
+      "name": "public.rhs_v_transfer_recent",
+      "category": "table"
+    },
+    {
+      "hash": "e52c2221576cec8f39935bbfad5a6dfc",
+      "name": "public.spu_calendar_academic_periods",
+      "category": "table"
+    },
+    {
+      "hash": "73b045ee87ec1194b03833407f8299a7",
+      "name": "public.spu_calendar_audit_logs",
+      "category": "table"
+    },
+    {
+      "hash": "e63ef600ac6d7a011e7474e9fc409a35",
+      "name": "public.spu_calendar_events",
+      "category": "table"
+    },
+    {
+      "hash": "900e95a3b5a1857220f4ace7e2ac27b9",
+      "name": "public.spu_calendar_import_batches",
+      "category": "table"
+    },
+    {
+      "hash": "b4250e5c0d86b3826e107b76d61d73b9",
+      "name": "public.spu_calendar_source_members",
+      "category": "table"
+    },
+    {
+      "hash": "acf50c3f4cdafa3c50342a3dabd112a3",
+      "name": "public.spu_calendar_sources",
+      "category": "table"
+    },
+    {
+      "hash": "1bc44f4610634dfb6152c762b6198427",
+      "name": "public.spu_calendar_sync_runs",
+      "category": "table"
+    },
+    {
+      "hash": "3a1d1686334a9587616e0f5cd0201fe2",
+      "name": "public.spu_security_change_events",
+      "category": "table"
+    },
+    {
+      "hash": "03db7adac66fdc0a009aa0a3744d5d6e",
+      "name": "public.spu_security_exceptions",
+      "category": "table"
+    },
+    {
+      "hash": "059461a34f47f54ece41686fdbb9c3ec",
+      "name": "public.spu_security_findings",
+      "category": "table"
+    },
+    {
+      "hash": "a2dd06dd443890309f1730268f19b787",
+      "name": "public.spu_security_gate_checks",
+      "category": "table"
+    },
+    {
+      "hash": "5d27097158c691a9900e1d29a252e812",
+      "name": "public.spu_security_gate_status",
+      "category": "table"
+    },
+    {
+      "hash": "36b46613ea78a28201a7f7f8e8986db4",
+      "name": "public.spu_security_release_evidence",
+      "category": "table"
+    },
+    {
+      "hash": "454faa91a619f6a8d2a6fbbdc1b6502a",
+      "name": "public.spu_security_releases",
+      "category": "table"
+    },
+    {
+      "hash": "fc0fee537ffe552a89eceb431b0be773",
+      "name": "public.spu_security_scan_results",
+      "category": "table"
+    },
+    {
+      "hash": "f9265ed19cf019630ce13c3d6be5bab7",
+      "name": "public.spu_system_registry",
+      "category": "table"
+    },
+    {
+      "hash": "7ce2be306292eeb4e38ab3deae18400f",
+      "name": "storage.buckets",
+      "category": "table"
+    },
+    {
+      "hash": "ea81ae0da4ac4933a214a6af0a4511ab",
+      "name": "storage.buckets_analytics",
+      "category": "table"
+    },
+    {
+      "hash": "4c1477a361fd8163dd2aae8dd35e0876",
+      "name": "storage.buckets_vectors",
+      "category": "table"
+    },
+    {
+      "hash": "efbac7b6bc18e4f138ca99fe885809ed",
+      "name": "storage.migrations",
+      "category": "table"
+    },
+    {
+      "hash": "86f0c2e8ff947d4b0241658d7f18cb3d",
+      "name": "storage.objects",
+      "category": "table"
+    },
+    {
+      "hash": "026aa3fd7840f665dd53e9ed2e2d9566",
+      "name": "storage.s3_multipart_uploads",
+      "category": "table"
+    },
+    {
+      "hash": "d07f2a9ad03f21bbb14c31f3ac2f6395",
+      "name": "storage.s3_multipart_uploads_parts",
+      "category": "table"
+    },
+    {
+      "hash": "403197d6e198f0660ad9ffa0bf1dd1fb",
+      "name": "storage.vector_indexes",
+      "category": "table"
+    }
+  ],
+  "exclusions": [
+    "agent_ops schema",
+    "table row data",
+    "auth settings outside PostgreSQL",
+    "Edge Function configuration",
+    "secrets"
+  ],
+  "projectRef": "doxunxbgqmybyckczucg",
+  "fingerprint": "76196e37800f283b2e3c7299ca583fd4",
+  "objectCounts": {
+    "enum": 20,
+    "table": 209,
+    "policy": 322,
+    "schema": 4,
+    "function": 167
+  },
+  "fingerprintVersion": 1
+}

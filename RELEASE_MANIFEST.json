@@ -1,0 +1,290 @@
+{
+  "createdAt": "2026-09-21T03:45:02.972222+00:00",
+  "projectId": "doxunxbgqmybyckczucg",
+  "repository": "Ai-TeamSPU/Agent-Operations",
+  "baselineCommit": "12f550147cc0e0123907079649a98fa4f555379c",
+  "productionReady": false,
+  "frontendDeployed": false,
+  "databaseMigrationDeployed": true,
+  "edgeFunctionVersion": 3,
+  "realRuntimeRowsObserved": 0,
+  "localTestsPassed": 46,
+  "productionAcceptance": "BLOCKED",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "bbd4ffeca02a6d15f4e9a3a2f4331774a4b058cd32c2a9b21faeedccad1c75ac",
+      "bytes": 338
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "aafbc08d30af45575540d4956f966e474ac2d8d4c7da293df27689b5b09bc22f",
+      "bytes": 86
+    },
+    {
+      "path": "DEPLOYMENT.md",
+      "sha256": "61fa28f0586359ebb248535027db9074fc6dea006d44067e9220c14c89cafe23",
+      "bytes": 5236
+    },
+    {
+      "path": "PRODUCTION_READINESS_REPORT.md",
+      "sha256": "375c9cbc1e1814c1ee50a871ba26c95a89d5afa01a490630e281b473d09546fb",
+      "bytes": 13603
+    },
+    {
+      "path": "README.md",
+      "sha256": "0c13b76dfd565fed15a9b298fb57476e591b8610b7d8361f2a67c1fc117247c7",
+      "bytes": 3167
+    },
+    {
+      "path": "RUN_LOG.schema.json",
+      "sha256": "024fd48ab1aa139f065636de1f12b90843e53d5fbfc06800586bc7d7034e4f10",
+      "bytes": 2488
+    },
+    {
+      "path": "agent-registry.schema.json",
+      "sha256": "3a6d19499930ca5873dc3effe5b3f35a0d33dbe32074141c60acd9de6b60e711",
+      "bytes": 3422
+    },
+    {
+      "path": "evidence/baseline-agent-registry-dna.json",
+      "sha256": "4fbf7d7cb04e890ed0df9fccc884e3e52d2fedf9d064534f6dfc54db113c4949",
+      "bytes": 30827
+    },
+    {
+      "path": "evidence/baseline-isolation.json",
+      "sha256": "099db8ee26cda6271a72b93ea1904c7c82443cd11e00014b92d18529e77c8b3e",
+      "bytes": 111748
+    },
+    {
+      "path": "evidence/baseline-supabase-audit.md",
+      "sha256": "14e0ffcc3a43cfcc51a100d89dec9680dd1511bddad154537c6e11b9e4b2ff13",
+      "bytes": 7740
+    },
+    {
+      "path": "evidence/deployment-receipt.json",
+      "sha256": "0ceb9693aec591a8fa1603ab367ee578b5a2e22f06dac124c071c871a41152af",
+      "bytes": 1635
+    },
+    {
+      "path": "evidence/final-production-state.json",
+      "sha256": "01fff413ca42698564713e12efcf48479678755fd7e0452464d8156ee19debca",
+      "bytes": 1481
+    },
+    {
+      "path": "evidence/node-tests.txt",
+      "sha256": "3a238345bf1e40682355f6b1fb9b76af68c706ac93f698c5640c64f010be75ca",
+      "bytes": 2310
+    },
+    {
+      "path": "evidence/post-isolation.json",
+      "sha256": "099db8ee26cda6271a72b93ea1904c7c82443cd11e00014b92d18529e77c8b3e",
+      "bytes": 111748
+    },
+    {
+      "path": "evidence/production-acceptance-pending.json",
+      "sha256": "e38387b2385913a5ef84294de815a61ce7b10b635dafcdceffd524d9fe863fb0",
+      "bytes": 1765
+    },
+    {
+      "path": "evidence/runtime-unit-tests.txt",
+      "sha256": "ca8080eca5546ac30fffec87d76dec86e1dd2ecb6f20a3fe51a478bc8e58bebc",
+      "bytes": 1475
+    },
+    {
+      "path": "evidence/security-advisor-summary.json",
+      "sha256": "9d0e09fe24e2913a2b567c70f57761b310cf5da38fccb6c8101ba8646443c240",
+      "bytes": 226
+    },
+    {
+      "path": "index.html",
+      "sha256": "19af5717df5aee4c491681603d783756cebc2dc5e06152c846b5f6da23cc4f3c",
+      "bytes": 203839
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "d8dc6480305a9ba22f0612c01fc6ff06cd85de61a87739a179236ecbca68179c",
+      "bytes": 18930
+    },
+    {
+      "path": "package.json",
+      "sha256": "d6fdf397a0a79d8fa056cf796fede8dcccb28d167f5fa34f064a60ed20e1c656",
+      "bytes": 386
+    },
+    {
+      "path": "supabase/config.toml",
+      "sha256": "b4e1c75bc0dbbda3715e8e8da4210ead105ecffdda842bbd300cdd87f8b33d01",
+      "bytes": 364
+    },
+    {
+      "path": "supabase/functions/agent-ops-chat/core.mjs",
+      "sha256": "1c04fbdd40ed5c337503ad781ca57660c78c687a9af88ea7a25f6ae71e46636e",
+      "bytes": 18253
+    },
+    {
+      "path": "supabase/functions/agent-ops-chat/deno.json",
+      "sha256": "549de40b56343747f0ab1ac9e4ef874ed0403ec69bd5d62b11ec3b01a7399ee7",
+      "bytes": 81
+    },
+    {
+      "path": "supabase/functions/agent-ops-chat/index.ts",
+      "sha256": "400d40cc1c2f64f02b0d5e2e439581ebfdd5f41c9e760eaac1c0f9006ffad701",
+      "bytes": 117
+    },
+    {
+      "path": "supabase/migrations/20260921032519_agent_ops_production_runtime.sql",
+      "sha256": "d4e28a03a1c0dbc99e3b1451bdc7cb421a6943dbae3d459a9ba90b2a4e4dd208",
+      "bytes": 50841
+    },
+    {
+      "path": "supabase/rollback-runtime-emergency.sql",
+      "sha256": "6b183de9bc3ee41dd06ac78c47cf32b4664b676b0ecdaf1e8be82d5e6bb078b8",
+      "bytes": 735
+    },
+    {
+      "path": "supabase/verify-production-runtime.sql",
+      "sha256": "d37fd1bb357cef9dd8da7cb5da7a6c8925abfb3c016576a6ce2a74188cd5abc3",
+      "bytes": 3915
+    },
+    {
+      "path": "tests/production-acceptance.mjs",
+      "sha256": "be7749a3b64b66adc1dd7905c8cc4ffb36d0b5e3a24fa89ce7548b07d6731bfa",
+      "bytes": 19678
+    },
+    {
+      "path": "tests/runtime.test.mjs",
+      "sha256": "e06ae09ff2adb6e2ac08f292144704084774752cb58696cc04944392b48e9ba4",
+      "bytes": 13475
+    },
+    {
+      "path": "tests/security-review.md",
+      "sha256": "4d2fbd35a0992ba0f0bb8d5138cdd55cb309557f3808d660ce6819e316eb6fb4",
+      "bytes": 6873
+    },
+    {
+      "path": "tests/security-sql-results.json",
+      "sha256": "c019924946edf5c3685a4ceba89c275549382d4277b02af4e0dd80bbe8e40efb",
+      "bytes": 2485
+    },
+    {
+      "path": "tests/sql/README.md",
+      "sha256": "eca2affc749fff319055a780da0ab4d26f7e163d7fdf5a8cb97ca4f004defb6d",
+      "bytes": 1895
+    },
+    {
+      "path": "tests/sql/bootstrap.mjs",
+      "sha256": "96467ff6dbed6952405ada8733b5420d8b11a47a125cc253d47e517c2020a855",
+      "bytes": 3449
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_chat_state.sql",
+      "sha256": "1bbf0b7aebfbf6a24b3e2cdb9eb521b3d2a5a2dd88d37ab5fee91e10993aa561",
+      "bytes": 1704
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_claim_chat.sql",
+      "sha256": "660836de5bd38a5c839bd4e1819eb5f457240bde77a5b6409cabccb75fc64540",
+      "bytes": 5038
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_finish_chat.sql",
+      "sha256": "db8892e99881e66c6f5d37c2bce03d7a2f035e7dfd2fe14880a3a7456eeccd35",
+      "bytes": 3988
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_operations_snapshot.sql",
+      "sha256": "85ffec1d9ea1615345ec612d1c3267f553836379b23144ea7a0c349ef167bac8",
+      "bytes": 4784
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_operations_write.sql",
+      "sha256": "4726a1257f848053e5b492acdbae7a2da8305ded44ad5340b095a8a90302337e",
+      "bytes": 2541
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_orchestrator_gate.sql",
+      "sha256": "16c2c5298d4ff1781cb4cadfee4bc4c6130061121617c60c069fa690bc50f1a9",
+      "bytes": 2103
+    },
+    {
+      "path": "tests/sql/fixtures/agent_ops_submit_chat.sql",
+      "sha256": "1b1ce37baf3e1c198d51b04c139c312d248de86c7c359bf9adb16ae065ef5536",
+      "bytes": 2519
+    },
+    {
+      "path": "tests/sql/fixtures/apply_default_agent_dna.sql",
+      "sha256": "c9833a6dc0fece08cdf785325cc2d6ecccc405ee5b5a2bd9be28dca62612566c",
+      "bytes": 1799
+    },
+    {
+      "path": "tests/sql/fixtures/column_grants.json",
+      "sha256": "df8352d8be4a3292c2369b4102b22d9f3ce21641922b37a802ae25da7ad1b5f4",
+      "bytes": 3971
+    },
+    {
+      "path": "tests/sql/fixtures/constraints-indexes.json",
+      "sha256": "aa2c103666f84700b453a6f9ab37d0d26a832e599eb2bac4bed43630d5f218fd",
+      "bytes": 41894
+    },
+    {
+      "path": "tests/sql/fixtures/contracts.json",
+      "sha256": "3011725fc1345a860db90c27cc01d84e450fe3965ed3f09212027b81a2b7b8b5",
+      "bytes": 1707
+    },
+    {
+      "path": "tests/sql/fixtures/functions.json",
+      "sha256": "af2408f7041e5ba5a2ce084c811864ba4203537b4ecd4f577cbc2292a20f887b",
+      "bytes": 5709
+    },
+    {
+      "path": "tests/sql/fixtures/grants.json",
+      "sha256": "5690cc225ca45e3870a0da2b9258cf9f1a3abdcb35d26a88d258a3428336352a",
+      "bytes": 9221
+    },
+    {
+      "path": "tests/sql/fixtures/guard_chat_insert.sql",
+      "sha256": "ed012eafdcdf5e84e5cef9129a476c6851b4134f31f22ffdafa80f640aa3654e",
+      "bytes": 1325
+    },
+    {
+      "path": "tests/sql/fixtures/guard_event.sql",
+      "sha256": "d66b42d213ea299abc2a8b98aa3b559e7b74b101a10ca4e94eba5a3bf8a6803c",
+      "bytes": 1909
+    },
+    {
+      "path": "tests/sql/fixtures/guard_operation_run.sql",
+      "sha256": "4f177a24ccf3ff0006486098dde42c27cf4871bdee4c6627b1db305b692bcf39",
+      "bytes": 4051
+    },
+    {
+      "path": "tests/sql/fixtures/schema.json",
+      "sha256": "ed1d307534ecdc7afa2fdb604bac28e4a3311384ec070a7a4f32e8ac342c68c2",
+      "bytes": 71446
+    },
+    {
+      "path": "tests/sql/fixtures/security.json",
+      "sha256": "1e9aea7025185fb0fd5193925a12cc49a95eeddf7d4d89bec6921f2b14bd7629",
+      "bytes": 14371
+    },
+    {
+      "path": "tests/sql/fixtures/triggers.json",
+      "sha256": "7f90e1f8b29fb1e08bf3eb6488eb911695b59841c14f2f65393abc1f8f3d7114",
+      "bytes": 2271
+    },
+    {
+      "path": "tests/sql/security-suite.mjs",
+      "sha256": "ecff5da89e30f82527d3b2545bb0e0632d8523ed763db6996855d2450b06b7d6",
+      "bytes": 12672
+    },
+    {
+      "path": "tests/ui.test.mjs",
+      "sha256": "7137518bcfd9964448ea730e6a8393a08bf50f8a7b20f8565aa0219ef0339b5e",
+      "bytes": 13704
+    },
+    {
+      "path": "tests/verify-isolation.sql",
+      "sha256": "d52d7ca09d7aead006598be0d6386cf7784107e6e4787dbaa1cf4a7f174a79bb",
+      "bytes": 4690
+    }
+  ]
+}

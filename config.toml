@@ -1,0 +1,9 @@
+project_id = "Agent-Operations"
+
+[functions.agent-ops-chat]
+enabled = true
+verify_jwt = false
+entrypoint = "./functions/agent-ops-chat/index.ts"
+# Existing function uses custom authentication: /auth/v1/user validation,
+# confirmed non-anonymous account, and database workspace authorization.
+# Do not apply this per-function setting to any HR or DL Exam function.

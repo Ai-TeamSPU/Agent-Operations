@@ -1,0 +1,176 @@
+[
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_threads",
+    "column_name": "agent_code",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_threads",
+    "column_name": "title",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_threads",
+    "column_name": "workspace_id",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_turns",
+    "column_name": "request_id",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_turns",
+    "column_name": "thread_id",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_turns",
+    "column_name": "user_content",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "chat_turns",
+    "column_name": "workspace_id",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "runtime_settings",
+    "column_name": "ai_enabled",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "authenticated",
+    "table_name": "runtime_settings",
+    "column_name": "updated_at",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "assistant_content",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "completed_at",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "context_refs",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "created_at",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "duration_ms",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "error_code",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "execution_mode",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "input_tokens",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "model",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "output_tokens",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "request_id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "run_id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "span_id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "started_at",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "status",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "thread_id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "user_content",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "user_id",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_name": "chat_turns",
+    "column_name": "workspace_id",
+    "privilege_type": "UPDATE"
+  }
+]

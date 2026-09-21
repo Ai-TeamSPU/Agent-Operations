@@ -1,0 +1,23 @@
+✔ offline /status uses user-scoped dashboard and verified automatic RUN_LOG (7.716902ms)
+✔ offline analysis invokes provider once and logs actual returned outcome (1.947928ms)
+✔ offline duplicate turn reuses exact runId and does not rerun provider (3.101322ms)
+✔ offline parallel requests cannot claim the same running turn twice (1.487406ms)
+✔ offline unsupported slash command is a real failed execution with central log (0.842236ms)
+✔ offline provider rejection finishes failed and never invents a model answer (0.87844ms)
+✔ offline committed success with lost response is verified without double finish (0.909818ms)
+✔ offline missing or mismatched proof cannot report success (1.772925ms)
+✔ offline multi-agent verifies children before synthesis and logs all three runs (3.669587ms)
+✔ offline failed child prevents parent synthesis and closes parent as failed (1.368237ms)
+✔ auth, origin and ownership failures do not execute or log a run (0.844299ms)
+✔ health reports capabilities only after authenticated workspace read (0.431719ms)
+✔ reject caller-supplied RPC/agent/message payload, oversized bodies and invalid turn IDs (0.624829ms)
+✔ receipt matching rejects cross-agent/run and unsuccessful orchestration gate (0.493152ms)
+✔ untrusted knowledge and child content cannot become system instruction messages (0.194412ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.54227

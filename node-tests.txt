@@ -1,0 +1,32 @@
+✔ offline /status uses user-scoped dashboard and verified automatic RUN_LOG (7.908202ms)
+✔ offline analysis invokes provider once and logs actual returned outcome (2.107557ms)
+✔ offline duplicate turn reuses exact runId and does not rerun provider (4.755615ms)
+✔ offline parallel requests cannot claim the same running turn twice (1.868747ms)
+✔ offline unsupported slash command is a real failed execution with central log (0.893913ms)
+✔ offline provider rejection finishes failed and never invents a model answer (0.885541ms)
+✔ offline committed success with lost response is verified without double finish (0.966302ms)
+✔ offline missing or mismatched proof cannot report success (2.024782ms)
+✔ offline multi-agent verifies children before synthesis and logs all three runs (3.847461ms)
+✔ offline failed child prevents parent synthesis and closes parent as failed (4.117577ms)
+✔ auth, origin and ownership failures do not execute or log a run (1.618081ms)
+✔ health reports capabilities only after authenticated workspace read (0.772581ms)
+✔ reject caller-supplied RPC/agent/message payload, oversized bodies and invalid turn IDs (0.835926ms)
+✔ receipt matching rejects cross-agent/run and unsuccessful orchestration gate (0.382825ms)
+✔ untrusted knowledge and child content cannot become system instruction messages (0.201734ms)
+✔ anonymous empty page creates no data or requests and cannot dispatch (207.258217ms)
+✔ viewer reads real-empty contract but cannot submit; unverified roster is shown (162.167624ms)
+✔ multi selector uses registry orchestrators and excludes coordinator from children (129.128529ms)
+✔ lost submission response preserves requestId on retry instead of creating new run (270.325451ms)
+✔ multi dispatch submits only selected agents and executes the returned parent turn (167.47224ms)
+✔ lost execute response retries the same turnId without resubmitting (222.6558ms)
+✔ completion requires matching runtime rows, receipt logging, successful children and gate (221.844241ms)
+✔ logged failed run remains visible, never labelled completed (104.769921ms)
+✔ sign-out clears private messages and RUN_LOG evidence (129.867971ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1942.333492

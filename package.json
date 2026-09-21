@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "jsdom": "26.1.0"
+  },
+  "name": "agent-operations",
+  "private": true,
+  "scripts": {
+    "test:ui": "node --test tests/ui.test.mjs",
+    "test:runtime": "node --test tests/runtime.test.mjs",
+    "test:sql": "node tests/sql/security-suite.mjs",
+    "test": "node --test tests/runtime.test.mjs tests/ui.test.mjs"
+  }
+}

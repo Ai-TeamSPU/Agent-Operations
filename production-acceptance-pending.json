@@ -1,0 +1,59 @@
+{
+  "formatVersion": 1,
+  "projectRef": "doxunxbgqmybyckczucg",
+  "workspace": "agent-factory",
+  "startedAt": "2026-09-21T03:36:42.792Z",
+  "mode": "real_authenticated_runtime",
+  "syntheticDataCreated": false,
+  "directLogWrites": false,
+  "checks": [
+    {
+      "name": "authenticated_runtime_access",
+      "status": "blocked",
+      "reason": "Set AGENT_OPS_PUBLISHABLE_KEY and AGENT_OPS_ACCESS_TOKEN using an active approved member session. No runtime request was sent."
+    },
+    {
+      "name": "status_command",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "analysis",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "multi_agent",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "duplicate_run_id",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "conflicting_duplicate_request",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "failed_run",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    },
+    {
+      "name": "dashboard_data_parity",
+      "status": "blocked",
+      "reason": "Authenticated runtime access unavailable."
+    }
+  ],
+  "dashboardRenderedParity": {
+    "status": "pending",
+    "reason": "A browser check or screenshot of these run IDs is required; this CLI verifies the same dashboard RPC data source only."
+  },
+  "completedAt": "2026-09-21T03:36:42.793Z",
+  "allRuntimeChecksPassed": false,
+  "productionReady": false,
+  "result": "not_production_ready"
+}

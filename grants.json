@@ -1,0 +1,398 @@
+[
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "automation_jobs",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "chat_threads",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "chat_turns",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "execution_events",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "historical_work_items",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "historical_work_items",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "history_import_batches",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "history_import_batches",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "knowledge_versions",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "learning_candidates",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "members",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "operation_runs",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "operation_runs",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "runtime_contracts",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "runtime_settings",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "source_registry",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "authenticated",
+    "table_schema": "agent_ops",
+    "table_name": "workspaces",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agent_skills",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "agents",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "automation_jobs",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "automation_jobs",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "automation_jobs",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "chat_threads",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "chat_turns",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "chat_turns",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "execution_events",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "execution_events",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "historical_work_items",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "historical_work_items",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "history_import_batches",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "history_import_batches",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "knowledge_versions",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "knowledge_versions",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "knowledge_versions",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "learning_candidates",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "learning_candidates",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "learning_candidates",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "members",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "members",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "members",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "operation_runs",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "operation_runs",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "runtime_contracts",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "runtime_settings",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "skills",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "source_registry",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "source_registry",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "source_registry",
+    "privilege_type": "UPDATE"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "workspaces",
+    "privilege_type": "INSERT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "workspaces",
+    "privilege_type": "SELECT"
+  },
+  {
+    "grantee": "service_role",
+    "table_schema": "agent_ops",
+    "table_name": "workspaces",
+    "privilege_type": "UPDATE"
+  }
+]

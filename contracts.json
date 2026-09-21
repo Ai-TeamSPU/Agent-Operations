@@ -1,0 +1,20 @@
+[
+  {
+    "contract_key": "run-log",
+    "version": "1.0.0",
+    "active": true,
+    "contract_md": "\n# Agent Operations Logging Contract\nทุกครั้งที่รับงานจริง:\n- ต้องมี runId ที่ไม่ซ้ำสำหรับการทำงานครั้งนั้น\n- หลังจบงานต้องบันทึก RUN_LOG ผ่าน Shared Logger ของ Agent Operations\n- workspace=agent-factory, environment=production, source_kind=runtime\n- ห้ามสร้างข้อมูลจำลอง ห้ามเดา duration/wait/retry/skill\n- ห้ามใส่ข้อมูลส่วนบุคคล เนื้อหางานเต็ม เอกสารเต็ม รหัสผ่าน token secret หรือข้อมูลลับลง log\n- งานที่ Agent อื่นมอบหมายให้ต้องระบุ parentAgentId\n- หลังบันทึกต้องคืน runId, status และ logging=logged|logging_failed\n- runId เดิมที่ข้อมูลเดิมต้อง deduplicate; ถ้าขัดกันให้หยุดและรายงานข้อผิดพลาด\n- ห้ามกล่าวว่าบันทึกแล้ว หาก Shared Logger ยังไม่ตอบรับสำเร็จ\n",
+    "config": {
+      "noPII": true,
+      "workspace": "agent-factory",
+      "sourceKind": "runtime",
+      "environment": "production",
+      "noSyntheticData": true,
+      "requiredReturnFields": [
+        "runId",
+        "status",
+        "logging"
+      ]
+    }
+  }
+]

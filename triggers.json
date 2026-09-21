@@ -1,0 +1,50 @@
+[
+  {
+    "nspname": "agent_ops",
+    "relname": "agents",
+    "tgname": "agents_default_dna",
+    "definition": "CREATE TRIGGER agents_default_dna BEFORE INSERT ON agent_ops.agents FOR EACH ROW EXECUTE FUNCTION agent_ops.apply_default_agent_dna()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "chat_turns",
+    "tgname": "chat_insert_guard",
+    "definition": "CREATE TRIGGER chat_insert_guard BEFORE INSERT ON agent_ops.chat_turns FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_chat_insert()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "execution_events",
+    "tgname": "guard_event",
+    "definition": "CREATE TRIGGER guard_event BEFORE INSERT OR DELETE OR UPDATE ON agent_ops.execution_events FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_event()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "historical_work_items",
+    "tgname": "historical_work_items_append_only",
+    "definition": "CREATE TRIGGER historical_work_items_append_only BEFORE INSERT OR DELETE OR UPDATE ON agent_ops.historical_work_items FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_historical_ledger()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "history_import_batches",
+    "tgname": "history_batches_append_only",
+    "definition": "CREATE TRIGGER history_batches_append_only BEFORE DELETE OR UPDATE ON agent_ops.history_import_batches FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_historical_ledger()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "knowledge_versions",
+    "tgname": "guard_knowledge_review",
+    "definition": "CREATE TRIGGER guard_knowledge_review BEFORE INSERT OR UPDATE ON agent_ops.knowledge_versions FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_review()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "learning_candidates",
+    "tgname": "guard_learning_review",
+    "definition": "CREATE TRIGGER guard_learning_review BEFORE INSERT OR UPDATE ON agent_ops.learning_candidates FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_review()"
+  },
+  {
+    "nspname": "agent_ops",
+    "relname": "operation_runs",
+    "tgname": "operation_runs_guard",
+    "definition": "CREATE TRIGGER operation_runs_guard BEFORE INSERT OR DELETE OR UPDATE ON agent_ops.operation_runs FOR EACH ROW EXECUTE FUNCTION agent_ops.guard_operation_run()"
+  }
+]

@@ -1,0 +1,1124 @@
+[
+  {
+    "kind": "constraint",
+    "table_name": "agent_skills",
+    "name": "agent_skills_check",
+    "definition": "CHECK ((is_assigned OR is_required))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agent_skills",
+    "name": "agent_skills_mapping_status_check",
+    "definition": "CHECK ((mapping_status = ANY (ARRAY['proposed'::text, 'verified'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agent_skills",
+    "name": "agent_skills_pkey",
+    "definition": "PRIMARY KEY (workspace_id, agent_code, skill_code, skill_version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agent_skills",
+    "name": "agent_skills_workspace_id_agent_code_fkey",
+    "definition": "FOREIGN KEY (workspace_id, agent_code) REFERENCES agent_ops.agents(workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agent_skills",
+    "name": "agent_skills_workspace_id_skill_code_skill_version_fkey",
+    "definition": "FOREIGN KEY (workspace_id, skill_code, skill_version) REFERENCES agent_ops.skills(workspace_id, code, version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_code_check",
+    "definition": "CHECK (((length(code) >= 1) AND (length(code) <= 120)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_implementation_verified_by_fkey",
+    "definition": "FOREIGN KEY (implementation_verified_by) REFERENCES auth.users(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_lifecycle_check",
+    "definition": "CHECK ((lifecycle = ANY (ARRAY['draft'::text, 'active'::text, 'deprecated'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_pkey",
+    "definition": "PRIMARY KEY (workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_runtime_status_check",
+    "definition": "CHECK ((runtime_status = ANY (ARRAY['unverified'::text, 'connected'::text, 'disabled'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "agents",
+    "name": "agents_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_attempts_check",
+    "definition": "CHECK ((attempts >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_check",
+    "definition": "CHECK ((attempts <= max_attempts))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_job_type_check",
+    "definition": "CHECK ((job_type = ANY (ARRAY['draft_content'::text, 'extract_learning'::text, 'evaluate_candidate'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_last_error_code_check",
+    "definition": "CHECK (((last_error_code IS NULL) OR (last_error_code ~ '^[A-Z0-9_.:-]{1,100}$'::text)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_max_attempts_check",
+    "definition": "CHECK (((max_attempts >= 1) AND (max_attempts <= 10)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['disabled'::text, 'queued'::text, 'running'::text, 'succeeded'::text, 'failed'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_workspace_id_candidate_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, candidate_id) REFERENCES agent_ops.learning_candidates(workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_workspace_id_dedupe_key_key",
+    "definition": "UNIQUE (workspace_id, dedupe_key)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_workspace_id_source_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, source_id) REFERENCES agent_ops.source_registry(workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_threads",
+    "name": "chat_threads_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_threads",
+    "name": "chat_threads_title_check",
+    "definition": "CHECK (((length(title) >= 1) AND (length(title) <= 100)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_threads",
+    "name": "chat_threads_workspace_id_agent_code_fkey",
+    "definition": "FOREIGN KEY (workspace_id, agent_code) REFERENCES agent_ops.agents(workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_threads",
+    "name": "chat_threads_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_threads",
+    "name": "chat_threads_workspace_id_user_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, user_id) REFERENCES agent_ops.members(workspace_id, user_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_assistant_content_check",
+    "definition": "CHECK ((length(assistant_content) <= 60000))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_context_refs_check",
+    "definition": "CHECK ((jsonb_typeof(context_refs) = 'array'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_duration_ms_check",
+    "definition": "CHECK ((duration_ms >= (0)::numeric))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_error_code_check",
+    "definition": "CHECK (((error_code IS NULL) OR (error_code ~ '^[A-Z0-9_]{1,80}$'::text)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_execution_mode_check",
+    "definition": "CHECK ((execution_mode = ANY (ARRAY['database_command'::text, 'role_assistant'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_input_tokens_check",
+    "definition": "CHECK ((input_tokens >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_output_tokens_check",
+    "definition": "CHECK ((output_tokens >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['queued'::text, 'running'::text, 'succeeded'::text, 'failed'::text, 'blocked'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_user_content_check",
+    "definition": "CHECK (((length(btrim(user_content)) >= 1) AND (length(btrim(user_content)) <= 8000)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_run_id_key",
+    "definition": "UNIQUE (workspace_id, run_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_thread_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, thread_id) REFERENCES agent_ops.chat_threads(workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_user_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, user_id) REFERENCES agent_ops.members(workspace_id, user_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_user_id_request_id_key",
+    "definition": "UNIQUE (workspace_id, user_id, request_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_check",
+    "definition": "CHECK ((((event_type ~~ 'skill.%'::text) AND (span_id IS NOT NULL) AND (skill_code IS NOT NULL) AND (skill_version IS NOT NULL)) OR ((event_type ~~ 'run.%'::text) AND (span_id IS NULL) AND (skill_code IS NULL) AND (skill_version IS NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_check1",
+    "definition": "CHECK (((event_type <> ALL (ARRAY['run.started'::text, 'skill.started'::text])) OR ((duration_ms IS NULL) AND (input_tokens IS NULL) AND (output_tokens IS NULL) AND (cost_usd IS NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_check2",
+    "definition": "CHECK (((event_type = ANY (ARRAY['run.failed'::text, 'skill.failed'::text])) OR (error_code IS NULL)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_cost_usd_check",
+    "definition": "CHECK ((cost_usd >= (0)::numeric))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_duration_ms_check",
+    "definition": "CHECK ((duration_ms >= (0)::numeric))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_environment_check",
+    "definition": "CHECK ((environment = ANY (ARRAY['production'::text, 'staging'::text, 'test'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_error_code_check",
+    "definition": "CHECK (((error_code IS NULL) OR (error_code ~ '^[A-Z0-9_.:-]{1,100}$'::text)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_event_key_check",
+    "definition": "CHECK (((length(event_key) >= 1) AND (length(event_key) <= 200)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_event_type_check",
+    "definition": "CHECK ((event_type = ANY (ARRAY['run.started'::text, 'run.succeeded'::text, 'run.failed'::text, 'run.cancelled'::text, 'skill.started'::text, 'skill.succeeded'::text, 'skill.failed'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_input_tokens_check",
+    "definition": "CHECK ((input_tokens >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_output_tokens_check",
+    "definition": "CHECK ((output_tokens >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_producer_check",
+    "definition": "CHECK ((producer ~ '^[a-zA-Z0-9_.:-]{1,120}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_source_kind_check",
+    "definition": "CHECK ((source_kind = ANY (ARRAY['runtime'::text, 'manual'::text, 'import'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_step_name_check",
+    "definition": "CHECK (((step_name IS NULL) OR (step_name ~ '^[a-zA-Z0-9_.:-]{1,120}$'::text)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_workspace_id_agent_code_fkey",
+    "definition": "FOREIGN KEY (workspace_id, agent_code) REFERENCES agent_ops.agents(workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_workspace_id_producer_event_key_key",
+    "definition": "UNIQUE (workspace_id, producer, event_key)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "execution_events",
+    "name": "execution_events_workspace_id_skill_code_skill_version_fkey",
+    "definition": "FOREIGN KEY (workspace_id, skill_code, skill_version) REFERENCES agent_ops.skills(workspace_id, code, version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_actor_kind_check",
+    "definition": "CHECK ((actor_kind = ANY (ARRAY['conversation_assistant'::text, 'unknown'::text, 'identified_agent'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_category_check",
+    "definition": "CHECK ((category = ANY (ARRAY['code_artifact'::text, 'database_change'::text, 'status_check'::text, 'documented_agent_work'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_check",
+    "definition": "CHECK ((((actor_kind = 'identified_agent'::text) AND (agent_code IS NOT NULL) AND (NULLIF(btrim(attribution_evidence), ''::text) IS NOT NULL)) OR ((actor_kind <> 'identified_agent'::text) AND (agent_code IS NULL) AND (attribution_evidence IS NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_check1",
+    "definition": "CHECK ((((time_basis = 'not_recorded'::text) AND (occurred_at IS NULL)) OR ((time_basis = 'source_event_timestamp'::text) AND (occurred_at IS NOT NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_check2",
+    "definition": "CHECK ((((category = 'code_artifact'::text) AND (evidence_status = 'artifact_verified'::text)) OR ((category = 'database_change'::text) AND (evidence_status = 'migration_verified'::text)) OR ((category = 'status_check'::text) AND (evidence_status = 'inspection_recorded'::text)) OR ((category = 'documented_agent_work'::text) AND (evidence_status = 'execution_evidenced'::text))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_duration_sec_check",
+    "definition": "CHECK ((duration_sec >= (0)::numeric))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_evidence_check",
+    "definition": "CHECK (((jsonb_typeof(evidence) = 'array'::text) AND ((jsonb_array_length(evidence) >= 1) AND (jsonb_array_length(evidence) <= 20)) AND (octet_length((evidence)::text) <= 32768)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_evidence_status_check",
+    "definition": "CHECK ((evidence_status = ANY (ARRAY['artifact_verified'::text, 'migration_verified'::text, 'inspection_recorded'::text, 'execution_evidenced'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_history_key_check",
+    "definition": "CHECK ((history_key ~ '^[A-Za-z0-9_.:-]{1,200}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_include_in_runtime_metrics_check",
+    "definition": "CHECK ((NOT include_in_runtime_metrics))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_pkey",
+    "definition": "PRIMARY KEY (workspace_id, history_key)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_retry_count_check",
+    "definition": "CHECK ((retry_count >= 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_summary_check",
+    "definition": "CHECK (((length(btrim(summary)) >= 1) AND (length(btrim(summary)) <= 3000)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_time_basis_check",
+    "definition": "CHECK ((time_basis = ANY (ARRAY['not_recorded'::text, 'source_event_timestamp'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_title_check",
+    "definition": "CHECK (((length(btrim(title)) >= 1) AND (length(btrim(title)) <= 240)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_wait_sec_check",
+    "definition": "CHECK ((wait_sec >= (0)::numeric))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_workspace_id_agent_code_fkey",
+    "definition": "FOREIGN KEY (workspace_id, agent_code) REFERENCES agent_ops.agents(workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_workspace_id_batch_key_fkey",
+    "definition": "FOREIGN KEY (workspace_id, batch_key) REFERENCES agent_ops.history_import_batches(workspace_id, batch_key)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_agent_coverage_check",
+    "definition": "CHECK (((jsonb_typeof(agent_coverage) = 'array'::text) AND (jsonb_array_length(agent_coverage) <= 500)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_batch_key_check",
+    "definition": "CHECK ((batch_key ~ '^[A-Za-z0-9_.:-]{1,120}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_pkey",
+    "definition": "PRIMARY KEY (workspace_id, batch_key)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_source_scope_check",
+    "definition": "CHECK (((length(source_scope) >= 1) AND (length(source_scope) <= 3000)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_check",
+    "definition": "CHECK (((status <> ALL (ARRAY['approved'::text, 'superseded'::text])) OR ((pii_status = ANY (ARRAY['clean'::text, 'redacted'::text])) AND (reviewed_by IS NOT NULL) AND (reviewed_at IS NOT NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_content_md_check",
+    "definition": "CHECK (((length(content_md) >= 1) AND (length(content_md) <= 200000)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_content_sha256_check",
+    "definition": "CHECK ((content_sha256 ~ '^[a-f0-9]{64}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_pii_status_check",
+    "definition": "CHECK ((pii_status = ANY (ARRAY['unchecked'::text, 'clean'::text, 'redacted'::text, 'sensitive'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_pkey",
+    "definition": "PRIMARY KEY (workspace_id, knowledge_id, version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['draft'::text, 'approved'::text, 'rejected'::text, 'superseded'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_version_check",
+    "definition": "CHECK ((version > 0))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_workspace_id_reviewed_by_fkey",
+    "definition": "FOREIGN KEY (workspace_id, reviewed_by) REFERENCES agent_ops.members(workspace_id, user_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_workspace_id_source_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, source_id) REFERENCES agent_ops.source_registry(workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_check",
+    "definition": "CHECK (((status <> 'approved'::text) OR ((evaluation_status = 'passed'::text) AND (evaluation_summary IS NOT NULL) AND (reviewed_by IS NOT NULL) AND (reviewed_at IS NOT NULL))))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_evaluation_status_check",
+    "definition": "CHECK ((evaluation_status = ANY (ARRAY['pending'::text, 'passed'::text, 'failed'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['draft'::text, 'needs_review'::text, 'approved'::text, 'rejected'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_workspace_id_agent_code_fkey",
+    "definition": "FOREIGN KEY (workspace_id, agent_code) REFERENCES agent_ops.agents(workspace_id, code)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_workspace_id_evidence_event_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id, evidence_event_id) REFERENCES agent_ops.execution_events(workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_workspace_id_reviewed_by_fkey",
+    "definition": "FOREIGN KEY (workspace_id, reviewed_by) REFERENCES agent_ops.members(workspace_id, user_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "members",
+    "name": "members_pkey",
+    "definition": "PRIMARY KEY (workspace_id, user_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "members",
+    "name": "members_role_check",
+    "definition": "CHECK ((role = ANY (ARRAY['viewer'::text, 'editor'::text, 'reviewer'::text, 'admin'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "members",
+    "name": "members_user_id_fkey",
+    "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "members",
+    "name": "members_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "operation_runs",
+    "name": "operation_runs_environment_check",
+    "definition": "CHECK ((environment = ANY (ARRAY['production'::text, 'staging'::text, 'test'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "operation_runs",
+    "name": "operation_runs_pkey",
+    "definition": "PRIMARY KEY (workspace_id, environment, run_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "operation_runs",
+    "name": "operation_runs_source_id_check",
+    "definition": "CHECK ((source_id ~ '^[A-Za-z0-9_.:-]{1,128}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "operation_runs",
+    "name": "operation_runs_source_kind_check",
+    "definition": "CHECK ((source_kind = ANY (ARRAY['runtime'::text, 'manual'::text, 'import'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "operation_runs",
+    "name": "operation_runs_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_config_check",
+    "definition": "CHECK ((jsonb_typeof(config) = 'object'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_contract_key_check",
+    "definition": "CHECK ((contract_key ~ '^[a-z0-9_.:-]{1,120}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_contract_md_check",
+    "definition": "CHECK (((length(contract_md) >= 1) AND (length(contract_md) <= 30000)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_pkey",
+    "definition": "PRIMARY KEY (workspace_id, contract_key, version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_version_check",
+    "definition": "CHECK (((length(version) >= 1) AND (length(version) <= 40)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_settings",
+    "name": "runtime_settings_pkey",
+    "definition": "PRIMARY KEY (workspace_id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_settings",
+    "name": "runtime_settings_requests_per_day_check",
+    "definition": "CHECK (((requests_per_day >= 1) AND (requests_per_day <= 500)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_settings",
+    "name": "runtime_settings_requests_per_minute_check",
+    "definition": "CHECK (((requests_per_minute >= 1) AND (requests_per_minute <= 30)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "runtime_settings",
+    "name": "runtime_settings_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_code_check",
+    "definition": "CHECK (((length(code) >= 1) AND (length(code) <= 120)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_implementation_verified_by_fkey",
+    "definition": "FOREIGN KEY (implementation_verified_by) REFERENCES auth.users(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_pkey",
+    "definition": "PRIMARY KEY (workspace_id, code, version)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['proposed'::text, 'testing'::text, 'active'::text, 'deprecated'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_version_check",
+    "definition": "CHECK (((length(version) >= 1) AND (length(version) <= 80)))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "skills",
+    "name": "skills_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "source_registry",
+    "name": "source_registry_data_scope_check",
+    "definition": "CHECK ((data_scope = 'agent_factory'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "source_registry",
+    "name": "source_registry_pkey",
+    "definition": "PRIMARY KEY (workspace_id, id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "source_registry",
+    "name": "source_registry_source_type_check",
+    "definition": "CHECK ((source_type = ANY (ARRAY['approved_document'::text, 'curated_url'::text, 'run_feedback'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "source_registry",
+    "name": "source_registry_workspace_id_fkey",
+    "definition": "FOREIGN KEY (workspace_id) REFERENCES agent_ops.workspaces(id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "source_registry",
+    "name": "source_registry_workspace_id_locator_key",
+    "definition": "UNIQUE (workspace_id, locator)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "workspaces",
+    "name": "workspaces_collection_status_check",
+    "definition": "CHECK ((collection_status = ANY (ARRAY['not_connected'::text, 'connected'::text, 'paused'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "workspaces",
+    "name": "workspaces_learning_mode_check",
+    "definition": "CHECK ((learning_mode = ANY (ARRAY['off'::text, 'draft_only'::text, 'review_required'::text])))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "workspaces",
+    "name": "workspaces_pkey",
+    "definition": "PRIMARY KEY (id)"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "workspaces",
+    "name": "workspaces_slug_check",
+    "definition": "CHECK ((slug ~ '^[a-z0-9][a-z0-9-]{1,79}$'::text))"
+  },
+  {
+    "kind": "constraint",
+    "table_name": "workspaces",
+    "name": "workspaces_slug_key",
+    "definition": "UNIQUE (slug)"
+  },
+  {
+    "kind": "index",
+    "table_name": "agent_skills",
+    "name": "agent_skills_pkey",
+    "definition": "CREATE UNIQUE INDEX agent_skills_pkey ON agent_ops.agent_skills USING btree (workspace_id, agent_code, skill_code, skill_version)"
+  },
+  {
+    "kind": "index",
+    "table_name": "agent_skills",
+    "name": "agent_skills_skill_idx",
+    "definition": "CREATE INDEX agent_skills_skill_idx ON agent_ops.agent_skills USING btree (workspace_id, skill_code, skill_version)"
+  },
+  {
+    "kind": "index",
+    "table_name": "agents",
+    "name": "agents_pkey",
+    "definition": "CREATE UNIQUE INDEX agents_pkey ON agent_ops.agents USING btree (workspace_id, code)"
+  },
+  {
+    "kind": "index",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_pkey",
+    "definition": "CREATE UNIQUE INDEX automation_jobs_pkey ON agent_ops.automation_jobs USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "automation_jobs",
+    "name": "automation_jobs_workspace_id_dedupe_key_key",
+    "definition": "CREATE UNIQUE INDEX automation_jobs_workspace_id_dedupe_key_key ON agent_ops.automation_jobs USING btree (workspace_id, dedupe_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "automation_jobs",
+    "name": "jobs_candidate_idx",
+    "definition": "CREATE INDEX jobs_candidate_idx ON agent_ops.automation_jobs USING btree (workspace_id, candidate_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "automation_jobs",
+    "name": "jobs_queue_idx",
+    "definition": "CREATE INDEX jobs_queue_idx ON agent_ops.automation_jobs USING btree (workspace_id, available_at) WHERE (status = 'queued'::text)"
+  },
+  {
+    "kind": "index",
+    "table_name": "automation_jobs",
+    "name": "jobs_source_idx",
+    "definition": "CREATE INDEX jobs_source_idx ON agent_ops.automation_jobs USING btree (workspace_id, source_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_threads",
+    "name": "chat_threads_agent_idx",
+    "definition": "CREATE INDEX chat_threads_agent_idx ON agent_ops.chat_threads USING btree (workspace_id, agent_code)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_threads",
+    "name": "chat_threads_owner_idx",
+    "definition": "CREATE INDEX chat_threads_owner_idx ON agent_ops.chat_threads USING btree (user_id, workspace_id, created_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_threads",
+    "name": "chat_threads_pkey",
+    "definition": "CREATE UNIQUE INDEX chat_threads_pkey ON agent_ops.chat_threads USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_turns",
+    "name": "chat_turns_owner_idx",
+    "definition": "CREATE INDEX chat_turns_owner_idx ON agent_ops.chat_turns USING btree (user_id, created_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_turns",
+    "name": "chat_turns_pkey",
+    "definition": "CREATE UNIQUE INDEX chat_turns_pkey ON agent_ops.chat_turns USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_turns",
+    "name": "chat_turns_thread_idx",
+    "definition": "CREATE INDEX chat_turns_thread_idx ON agent_ops.chat_turns USING btree (workspace_id, thread_id, created_at)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_run_id_key",
+    "definition": "CREATE UNIQUE INDEX chat_turns_workspace_id_run_id_key ON agent_ops.chat_turns USING btree (workspace_id, run_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "chat_turns",
+    "name": "chat_turns_workspace_id_user_id_request_id_key",
+    "definition": "CREATE UNIQUE INDEX chat_turns_workspace_id_user_id_request_id_key ON agent_ops.chat_turns USING btree (workspace_id, user_id, request_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_agent_time_idx",
+    "definition": "CREATE INDEX execution_agent_time_idx ON agent_ops.execution_events USING btree (workspace_id, agent_code, occurred_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_events_pkey",
+    "definition": "CREATE UNIQUE INDEX execution_events_pkey ON agent_ops.execution_events USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_events_workspace_id_producer_event_key_key",
+    "definition": "CREATE UNIQUE INDEX execution_events_workspace_id_producer_event_key_key ON agent_ops.execution_events USING btree (workspace_id, producer, event_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_report_idx",
+    "definition": "CREATE INDEX execution_report_idx ON agent_ops.execution_events USING btree (workspace_id, environment, source_kind, occurred_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_run_end_uq",
+    "definition": "CREATE UNIQUE INDEX execution_run_end_uq ON agent_ops.execution_events USING btree (workspace_id, environment, run_id) WHERE (event_type = ANY (ARRAY['run.succeeded'::text, 'run.failed'::text, 'run.cancelled'::text]))"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_run_start_uq",
+    "definition": "CREATE UNIQUE INDEX execution_run_start_uq ON agent_ops.execution_events USING btree (workspace_id, environment, run_id) WHERE (event_type = 'run.started'::text)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_skill_end_uq",
+    "definition": "CREATE UNIQUE INDEX execution_skill_end_uq ON agent_ops.execution_events USING btree (workspace_id, environment, run_id, span_id) WHERE (event_type = ANY (ARRAY['skill.succeeded'::text, 'skill.failed'::text]))"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_skill_start_uq",
+    "definition": "CREATE UNIQUE INDEX execution_skill_start_uq ON agent_ops.execution_events USING btree (workspace_id, environment, run_id, span_id) WHERE (event_type = 'skill.started'::text)"
+  },
+  {
+    "kind": "index",
+    "table_name": "execution_events",
+    "name": "execution_skill_time_idx",
+    "definition": "CREATE INDEX execution_skill_time_idx ON agent_ops.execution_events USING btree (workspace_id, skill_code, skill_version, occurred_at DESC) WHERE (skill_code IS NOT NULL)"
+  },
+  {
+    "kind": "index",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_agent_idx",
+    "definition": "CREATE INDEX historical_work_items_agent_idx ON agent_ops.historical_work_items USING btree (workspace_id, agent_code)"
+  },
+  {
+    "kind": "index",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_batch_idx",
+    "definition": "CREATE INDEX historical_work_items_batch_idx ON agent_ops.historical_work_items USING btree (workspace_id, batch_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_pkey",
+    "definition": "CREATE UNIQUE INDEX historical_work_items_pkey ON agent_ops.historical_work_items USING btree (workspace_id, history_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "historical_work_items",
+    "name": "historical_work_items_recorded_idx",
+    "definition": "CREATE INDEX historical_work_items_recorded_idx ON agent_ops.historical_work_items USING btree (workspace_id, recorded_at DESC, history_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "history_import_batches",
+    "name": "history_import_batches_pkey",
+    "definition": "CREATE UNIQUE INDEX history_import_batches_pkey ON agent_ops.history_import_batches USING btree (workspace_id, batch_key)"
+  },
+  {
+    "kind": "index",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_reviewer_idx",
+    "definition": "CREATE INDEX knowledge_reviewer_idx ON agent_ops.knowledge_versions USING btree (workspace_id, reviewed_by)"
+  },
+  {
+    "kind": "index",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_source_idx",
+    "definition": "CREATE INDEX knowledge_source_idx ON agent_ops.knowledge_versions USING btree (workspace_id, source_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_status_idx",
+    "definition": "CREATE INDEX knowledge_status_idx ON agent_ops.knowledge_versions USING btree (workspace_id, status, created_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "knowledge_versions",
+    "name": "knowledge_versions_pkey",
+    "definition": "CREATE UNIQUE INDEX knowledge_versions_pkey ON agent_ops.knowledge_versions USING btree (workspace_id, knowledge_id, version)"
+  },
+  {
+    "kind": "index",
+    "table_name": "learning_candidates",
+    "name": "learning_agent_idx",
+    "definition": "CREATE INDEX learning_agent_idx ON agent_ops.learning_candidates USING btree (workspace_id, agent_code)"
+  },
+  {
+    "kind": "index",
+    "table_name": "learning_candidates",
+    "name": "learning_candidates_pkey",
+    "definition": "CREATE UNIQUE INDEX learning_candidates_pkey ON agent_ops.learning_candidates USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "learning_candidates",
+    "name": "learning_evidence_idx",
+    "definition": "CREATE INDEX learning_evidence_idx ON agent_ops.learning_candidates USING btree (workspace_id, evidence_event_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "learning_candidates",
+    "name": "learning_reviewer_idx",
+    "definition": "CREATE INDEX learning_reviewer_idx ON agent_ops.learning_candidates USING btree (workspace_id, reviewed_by)"
+  },
+  {
+    "kind": "index",
+    "table_name": "learning_candidates",
+    "name": "learning_status_idx",
+    "definition": "CREATE INDEX learning_status_idx ON agent_ops.learning_candidates USING btree (workspace_id, status, created_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "members",
+    "name": "members_pkey",
+    "definition": "CREATE UNIQUE INDEX members_pkey ON agent_ops.members USING btree (workspace_id, user_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "members",
+    "name": "members_user_idx",
+    "definition": "CREATE INDEX members_user_idx ON agent_ops.members USING btree (user_id, workspace_id) WHERE active"
+  },
+  {
+    "kind": "index",
+    "table_name": "operation_runs",
+    "name": "operation_runs_pkey",
+    "definition": "CREATE UNIQUE INDEX operation_runs_pkey ON agent_ops.operation_runs USING btree (workspace_id, environment, run_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "operation_runs",
+    "name": "operation_runs_received_idx",
+    "definition": "CREATE INDEX operation_runs_received_idx ON agent_ops.operation_runs USING btree (workspace_id, environment, received_at DESC)"
+  },
+  {
+    "kind": "index",
+    "table_name": "runtime_contracts",
+    "name": "runtime_contracts_pkey",
+    "definition": "CREATE UNIQUE INDEX runtime_contracts_pkey ON agent_ops.runtime_contracts USING btree (workspace_id, contract_key, version)"
+  },
+  {
+    "kind": "index",
+    "table_name": "runtime_settings",
+    "name": "runtime_settings_pkey",
+    "definition": "CREATE UNIQUE INDEX runtime_settings_pkey ON agent_ops.runtime_settings USING btree (workspace_id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "skills",
+    "name": "skills_pkey",
+    "definition": "CREATE UNIQUE INDEX skills_pkey ON agent_ops.skills USING btree (workspace_id, code, version)"
+  },
+  {
+    "kind": "index",
+    "table_name": "source_registry",
+    "name": "source_registry_pkey",
+    "definition": "CREATE UNIQUE INDEX source_registry_pkey ON agent_ops.source_registry USING btree (workspace_id, id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "source_registry",
+    "name": "source_registry_workspace_id_locator_key",
+    "definition": "CREATE UNIQUE INDEX source_registry_workspace_id_locator_key ON agent_ops.source_registry USING btree (workspace_id, locator)"
+  },
+  {
+    "kind": "index",
+    "table_name": "workspaces",
+    "name": "workspaces_pkey",
+    "definition": "CREATE UNIQUE INDEX workspaces_pkey ON agent_ops.workspaces USING btree (id)"
+  },
+  {
+    "kind": "index",
+    "table_name": "workspaces",
+    "name": "workspaces_slug_key",
+    "definition": "CREATE UNIQUE INDEX workspaces_slug_key ON agent_ops.workspaces USING btree (slug)"
+  }
+]

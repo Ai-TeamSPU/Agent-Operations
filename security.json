@@ -1,0 +1,290 @@
+[
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agent_skills",
+    "policyname": "registry_admin_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agent_skills",
+    "policyname": "registry_admin_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agent_skills",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agents",
+    "policyname": "registry_admin_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agents",
+    "policyname": "registry_admin_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "agents",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "automation_jobs",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "chat_threads",
+    "policyname": "threads_owner_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((user_id = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['editor'::text, 'reviewer'::text, 'admin'::text]))))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "chat_threads",
+    "policyname": "threads_owner_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "((user_id = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active))))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "chat_turns",
+    "policyname": "turns_owner_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((user_id = ( SELECT auth.uid() AS uid)) AND (status = 'queued'::text) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['editor'::text, 'reviewer'::text, 'admin'::text]))))) AND (EXISTS ( SELECT 1\n   FROM agent_ops.chat_threads t\n  WHERE ((t.workspace_id = chat_turns.workspace_id) AND (t.id = chat_turns.thread_id) AND (t.user_id = ( SELECT auth.uid() AS uid))))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "chat_turns",
+    "policyname": "turns_owner_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "((user_id = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active))))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "execution_events",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "historical_work_items",
+    "policyname": "history_items_admin_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((recorded_by = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text)))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "historical_work_items",
+    "policyname": "history_items_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "history_import_batches",
+    "policyname": "history_batches_admin_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((created_by = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text)))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "history_import_batches",
+    "policyname": "history_batches_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "knowledge_versions",
+    "policyname": "reviewer_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "((workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['reviewer'::text, 'admin'::text]))))) AND (status = ANY (ARRAY['draft'::text, 'rejected'::text])))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['reviewer'::text, 'admin'::text])))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "knowledge_versions",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "learning_candidates",
+    "policyname": "chat_learning_draft_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((status = ANY (ARRAY['draft'::text, 'needs_review'::text])) AND (evaluation_status = 'pending'::text) AND (reviewed_by IS NULL) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['editor'::text, 'reviewer'::text, 'admin'::text]))))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "learning_candidates",
+    "policyname": "reviewer_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "((workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['reviewer'::text, 'admin'::text]))))) AND (status = ANY (ARRAY['draft'::text, 'needs_review'::text, 'rejected'::text])))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['reviewer'::text, 'admin'::text])))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "learning_candidates",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "members",
+    "policyname": "members_read_own",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "((user_id = ( SELECT auth.uid() AS uid)) AND active)",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "operation_runs",
+    "policyname": "operation_runs_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((source_kind = ANY (ARRAY['manual'::text, 'import'::text])) AND (environment = 'production'::text) AND (created_by = ( SELECT auth.uid() AS uid)) AND (workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = ANY (ARRAY['editor'::text, 'admin'::text]))))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "operation_runs",
+    "policyname": "operation_runs_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "runtime_contracts",
+    "policyname": "runtime_contracts_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "runtime_settings",
+    "policyname": "settings_admin_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "runtime_settings",
+    "policyname": "settings_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "skills",
+    "policyname": "registry_admin_insert",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "skills",
+    "policyname": "registry_admin_update",
+    "roles": "{authenticated}",
+    "cmd": "UPDATE",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))",
+    "with_check": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active AND (members.role = 'admin'::text))))"
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "skills",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "source_registry",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(workspace_id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  },
+  {
+    "schemaname": "agent_ops",
+    "tablename": "workspaces",
+    "policyname": "workspace_member_read",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "(id IN ( SELECT members.workspace_id\n   FROM agent_ops.members\n  WHERE ((members.user_id = ( SELECT auth.uid() AS uid)) AND members.active)))",
+    "with_check": null
+  }
+]

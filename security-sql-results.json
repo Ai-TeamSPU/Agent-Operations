@@ -1,0 +1,95 @@
+{
+  "kind": "LOCAL_SQL_INTEGRATION_NOT_PRODUCTION_EVIDENCE",
+  "migrationSha256": "d4e28a03a1c0dbc99e3b1451bdc7cb421a6943dbae3d459a9ba90b2a4e4dd208",
+  "generatedAt": "2026-09-21T03:43:34.086Z",
+  "results": [
+    {
+      "name": "authenticated submission assigns durable turn/run identity",
+      "passed": true
+    },
+    {
+      "name": "identical request deduplicates to same turn",
+      "passed": true
+    },
+    {
+      "name": "conflicting duplicate request rejected",
+      "passed": true
+    },
+    {
+      "name": "claim starts run once",
+      "passed": true
+    },
+    {
+      "name": "finish commits exact runtime row and receipt",
+      "passed": true
+    },
+    {
+      "name": "identical finish deduplicates without extra run row",
+      "passed": true
+    },
+    {
+      "name": "conflicting finish payload rejected",
+      "passed": true
+    },
+    {
+      "name": "anonymous cannot submit or call runtime claim",
+      "passed": true
+    },
+    {
+      "name": "viewer cannot dispatch and authenticated cannot call service verify",
+      "passed": true
+    },
+    {
+      "name": "outsider cannot read private turn or operation rows",
+      "passed": true
+    },
+    {
+      "name": "revoked member cannot replay claim or verify terminal answer",
+      "passed": true
+    },
+    {
+      "name": "missing model configuration produces durable failed run",
+      "passed": true
+    },
+    {
+      "name": "missing logging config key fails closed",
+      "passed": true
+    },
+    {
+      "name": "multi-agent parent waits for two durable child turns",
+      "passed": true
+    },
+    {
+      "name": "multi-agent child receipts link exact root run and agent",
+      "passed": true
+    },
+    {
+      "name": "multi-agent root only succeeds after exact child gate",
+      "passed": true
+    },
+    {
+      "name": "gate rejects empty, duplicate and mismatched agent/run pairs",
+      "passed": true
+    },
+    {
+      "name": "failed child prevents root success and logs failed root",
+      "passed": true
+    },
+    {
+      "name": "running lease timeout commits failed log without re-execution",
+      "passed": true
+    },
+    {
+      "name": "reserved runtime runId blocks forged manual log",
+      "passed": true
+    },
+    {
+      "name": "expired queued request receives explicit QUEUE_TIMEOUT failed receipt",
+      "passed": true
+    },
+    {
+      "name": "revocation recovery logs failure but does not return private answer",
+      "passed": true
+    }
+  ]
+}

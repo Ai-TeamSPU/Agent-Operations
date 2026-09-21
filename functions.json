@@ -1,0 +1,212 @@
+[
+  {
+    "schema": "agent_ops",
+    "name": "apply_default_agent_dna",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres}"
+  },
+  {
+    "schema": "agent_ops",
+    "name": "guard_chat_insert",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres}"
+  },
+  {
+    "schema": "agent_ops",
+    "name": "guard_event",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "agent_ops",
+    "name": "guard_historical_ledger",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres}"
+  },
+  {
+    "schema": "agent_ops",
+    "name": "guard_operation_run",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres}"
+  },
+  {
+    "schema": "agent_ops",
+    "name": "guard_review",
+    "args": "",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_chat_state",
+    "args": "p_workspace_slug text, p_thread_id uuid",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_claim_chat",
+    "args": "p_turn_id uuid, p_user_id uuid, p_ai_configured boolean",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_dashboard",
+    "args": "p_workspace_slug text, p_days integer",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_finish_chat",
+    "args": "p_turn_id uuid, p_user_id uuid, p_answer text, p_error_code text, p_model text, p_duration_ms numeric, p_input_tokens bigint, p_output_tokens bigint",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_history_snapshot",
+    "args": "p_workspace_slug text, p_limit integer, p_offset integer",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_learning_queue",
+    "args": "p_workspace_slug text",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_operations_register",
+    "args": "p_workspace_slug text, p_registry jsonb",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_operations_snapshot",
+    "args": "p_workspace_slug text",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_operations_write",
+    "args": "p_workspace_slug text, p_runs jsonb, p_source_id text, p_source_kind text, p_environment text",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_orchestrator_gate",
+    "args": "p_workspace_slug text, p_expected_agent_codes text[], p_child_run_ids text[]",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_record_events",
+    "args": "p_workspace_slug text, p_events jsonb",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,service_role=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_review_item",
+    "args": "p_workspace_slug text, p_item_type text, p_item_id uuid, p_version integer, p_decision text, p_pii_status text",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_save_chat_learning",
+    "args": "p_workspace_slug text, p_turn_id uuid",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_set_ai_enabled",
+    "args": "p_workspace_slug text, p_enabled boolean",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  },
+  {
+    "schema": "public",
+    "name": "agent_ops_submit_chat",
+    "args": "p_workspace_slug text, p_agent_code text, p_thread_id uuid, p_request_id uuid, p_message text",
+    "security_definer": false,
+    "config": [
+      "search_path=\"\""
+    ],
+    "acl": "{postgres=X/postgres,authenticated=X/postgres}"
+  }
+]
